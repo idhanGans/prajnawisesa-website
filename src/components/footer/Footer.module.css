@@ -1,5 +1,5 @@
 .footer {
-  background: #000000;
+  background: #1a1a1a;
   padding: 6rem 3rem 3rem;
   position: relative;
   overflow: hidden;
@@ -34,7 +34,7 @@
 }
 
 .brandTagline {
-  color: #c0c0c0;
+  color: #9ca3af;
   font-size: 0.95rem;
   line-height: 1.7;
   margin: 0;
@@ -48,14 +48,14 @@
 }
 
 .contactEmail span {
-  color: #c0c0c0;
+  color: #9ca3af;
   font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .contactEmail a {
-  color: #d4b896;
+  color: #c9a87c;
   font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none;
@@ -80,7 +80,7 @@
 }
 
 .linkTitle {
-  color: #d4b896;
+  color: #c9a87c;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -98,7 +98,7 @@
 }
 
 .linkList a {
-  color: #c0c0c0;
+  color: #9ca3af;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
@@ -116,7 +116,7 @@
 }
 
 .locationInfo p {
-  color: #c0c0c0;
+  color: #9ca3af;
   font-size: 0.95rem;
   margin: 0;
 }
@@ -127,7 +127,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(212, 184, 150, 0.2),
+    rgba(201, 168, 124, 0.3),
     transparent
   );
   margin-bottom: 2rem;
@@ -142,7 +142,7 @@
 
 .copyright,
 .credits {
-  color: #666666;
+  color: #6b7280;
   font-size: 0.85rem;
   margin: 0;
 }

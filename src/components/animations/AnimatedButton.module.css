@@ -48,47 +48,47 @@
 
 /* Primary Variant */
 .primary {
-  background: #d4b896;
-  color: #000000;
+  background: #1a1a1a;
+  color: #ffffff;
 }
 
 .primary .hoverEffect {
-  background: #ffffff;
+  background: #c9a87c;
 }
 
 .primary:hover .label,
 .primary:hover .arrow {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Secondary Variant */
 .secondary {
-  background: #000000;
+  background: #c9a87c;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid #c9a87c;
 }
 
 .secondary .hoverEffect {
-  background: #d4b896;
+  background: #1a1a1a;
 }
 
 .secondary:hover .label,
 .secondary:hover .arrow {
-  color: #000000;
+  color: #ffffff;
 }
 
 /* Outline Variant */
 .outline {
   background: transparent;
-  color: #d4b896;
-  border: 1px solid #d4b896;
+  color: #1a1a1a;
+  border: 1px solid #1a1a1a;
 }
 
 .outline .hoverEffect {
-  background: #d4b896;
+  background: #1a1a1a;
 }
 
 .outline:hover .label,
 .outline:hover .arrow {
-  color: #000000;
+  color: #ffffff;
 }

@@ -105,7 +105,11 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+      <header
+        className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${
+          isMenuOpen ? styles.menuOpen : ""
+        }`}
+      >
         <div className={styles.container}>
           <Link
             href="#home"

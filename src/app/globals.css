@@ -1,21 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #d4b896;
-  --color-secondary: #c0c0c0;
-  --color-dark: #000000;
-  --color-darker: #0a0a0a;
+  /* Primary Palette - White, Gray, Black, Beige */
+  --color-primary: #c9a87c;
+  --color-primary-dark: #b8956a;
+  --color-secondary: #6b7280;
+  --color-dark: #1a1a1a;
+  --color-darker: #0f0f0f;
   --color-light: #ffffff;
-  --color-gray: #c0c0c0;
-  --color-silver: #c0c0c0;
-  --color-beige: #d4b896;
+  --color-white: #ffffff;
+  --color-off-white: #fafafa;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-beige: #c9a87c;
+  --color-beige-light: #e8d5b7;
+  --color-beige-dark: #a88b5a;
+  --color-black: #000000;
 
   --font-sans: var(--font-poppins);
 }
 
 @theme inline {
-  --color-background: var(--color-dark);
-  --color-foreground: var(--color-light);
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-dark);
   --font-sans: var(--font-poppins);
 }
 
@@ -32,8 +47,8 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
-  color: var(--color-light);
+  background: #ffffff;
+  color: var(--color-dark);
   font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   font-size: 16px;
@@ -65,7 +80,7 @@ h3 {
 }
 
 p {
-  color: var(--color-gray);
+  color: var(--color-gray-600);
   line-height: 1.8;
 }
 
@@ -81,32 +96,32 @@ button {
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-gray-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4af37;
-  border-radius: 5px;
+  background: var(--color-beige);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c9a024;
+  background: var(--color-beige-dark);
 }
 
 /* Selection */
 ::selection {
-  background-color: #d4af37;
-  color: #1a1a1a;
+  background-color: var(--color-beige);
+  color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: #d4af37;
-  color: #1a1a1a;
+  background-color: var(--color-beige);
+  color: #ffffff;
 }
 
 /* Utility Classes */
