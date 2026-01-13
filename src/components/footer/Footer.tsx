@@ -1,120 +1,142 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Footer.module.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const footerRef = useRef<HTMLElement>(null);
+  const brandRef = useRef<HTMLDivElement>(null);
 
-  const footerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        brandRef.current,
+        { opacity: 0.3 },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: "top 80%",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        }
+      );
+    }, footerRef);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 },
-    },
-  };
+    return () => ctx.revert();
+  }, []);
 
-  const socialLinks = [
-    { name: "Twitter", href: "#" },
-    { name: "LinkedIn", href: "#" },
-    { name: "GitHub", href: "#" },
-  ];
-
-  const companyLinks = [
+  const navLinks = [
+    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Blog", href: "#blog" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
   ];
 
-  const legalLinks = [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Cookie Policy", href: "#" },
+  const socialLinks = [
+    { name: "LinkedIn", href: "https://linkedin.com" },
+    { name: "Twitter", href: "https://twitter.com" },
+    { name: "Instagram", href: "https://instagram.com" },
   ];
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <motion.footer
-      className={styles.footer}
-      variants={footerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <footer ref={footerRef} className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.grid}>
-          {/* Company Info */}
-          <motion.div className={styles.column} variants={itemVariants}>
-            <h3 className={styles.heading}>Prajnawisesa</h3>
-            <p className={styles.description}>
-              Building digital excellence through innovative solutions and
-              cutting-edge technology.
+        {/* Top Section */}
+        <div className={styles.topSection}>
+          <div className={styles.brandColumn}>
+            <h3 className={styles.brandName}>PRAJNAWISESA</h3>
+            <p className={styles.brandTagline}>
+              Strategic business consulting that drives growth and transforms
+              organizations.
             </p>
-          </motion.div>
+            <div className={styles.contactEmail}>
+              <span>Get in touch</span>
+              <a href="mailto:contact@prajnawisesa.com">
+                contact@prajnawisesa.com
+              </a>
+            </div>
+          </div>
 
-          {/* Company Links */}
-          <motion.div className={styles.column} variants={itemVariants}>
-            <h4 className={styles.subHeading}>Company</h4>
-            <ul className={styles.links}>
-              {companyLinks.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          <div className={styles.linksColumn}>
+            <div className={styles.linkGroup}>
+              <h4 className={styles.linkTitle}>Navigation</h4>
+              <ul className={styles.linkList}>
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Legal Links */}
-          <motion.div className={styles.column} variants={itemVariants}>
-            <h4 className={styles.subHeading}>Legal</h4>
-            <ul className={styles.links}>
-              {legalLinks.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            <div className={styles.linkGroup}>
+              <h4 className={styles.linkTitle}>Connect</h4>
+              <ul className={styles.linkList}>
+                {socialLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Social Links */}
-          <motion.div className={styles.column} variants={itemVariants}>
-            <h4 className={styles.subHeading}>Follow Us</h4>
-            <ul className={styles.socialLinks}>
-              {socialLinks.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            <div className={styles.linkGroup}>
+              <h4 className={styles.linkTitle}>Location</h4>
+              <div className={styles.locationInfo}>
+                <p>Jakarta, Indonesia</p>
+                <p>Available Worldwide</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Divider */}
         <div className={styles.divider}></div>
 
         {/* Bottom Section */}
-        <div className={styles.bottom}>
+        <div className={styles.bottomSection}>
           <p className={styles.copyright}>
-            &copy; {currentYear} Prajnawisesa. All rights reserved.
+            © {currentYear} Prajnawisesa Consultant. All rights reserved.
           </p>
-          <p className={styles.credit}>
-            Crafted with care for modern businesses.
-          </p>
+          <p className={styles.credits}>Designed & Built with Excellence</p>
+        </div>
+
+        {/* Large Brand Name */}
+        <div ref={brandRef} className={styles.largeBrand}>
+          PRAJNAWISESA
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };

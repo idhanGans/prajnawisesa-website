@@ -1,0 +1,8 @@
+.container {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.text {
+  display: inline-block;
+}

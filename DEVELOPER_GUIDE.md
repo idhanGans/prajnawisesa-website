@@ -3,6 +3,7 @@
 ## Project Overview
 
 This is a modern, professional company profile website built with:
+
 - **Next.js 16** (App Router)
 - **TypeScript** (Full type safety)
 - **Framer Motion** (Advanced animations)
@@ -74,6 +75,7 @@ src/
 ### Login Page (`src/app/login/page.tsx`)
 
 **Features:**
+
 - Dynamic geometric SVG background with animated shapes
 - Floating gradient orbs with continuous animation
 - Center-aligned "Enter Site" button with smooth interactions
@@ -82,6 +84,7 @@ src/
 - Full responsive design with mobile optimizations
 
 **Animation Sequence:**
+
 1. Page loads with fade-in effect
 2. Title slides down from top
 3. Subtitle and description fade in
@@ -90,6 +93,7 @@ src/
 6. Redirects to home page
 
 **Responsive Breakpoints:**
+
 - Desktop: All elements visible
 - Tablet (< 768px): Scroll indicator hidden
 - Mobile (< 480px): Adjusted font sizes and padding
@@ -97,6 +101,7 @@ src/
 ### Home Page (`src/app/home/page.tsx`)
 
 **Sections:**
+
 1. **Hero Section** - Large title with gradient effect and CTA button
 2. **About Section** - Three value propositions with animated cards
 3. **Services Section** - Four service offerings with hover effects
@@ -104,6 +109,7 @@ src/
 5. **CTA Section** - Call-to-action with prominent button
 
 **Features:**
+
 - Sticky navigation with backdrop blur
 - Scroll-triggered animations on all sections
 - Responsive grid layouts
@@ -113,6 +119,7 @@ src/
 ### Navigation (Navbar)
 
 **Features:**
+
 - Sticky positioning with backdrop blur effect
 - Animated menu items with stagger effect
 - Active state indicator with gold underline
@@ -121,6 +128,7 @@ src/
 - Smooth scroll animations
 
 **Navigation Items:**
+
 - Home
 - About
 - Services
@@ -131,6 +139,7 @@ src/
 ### Footer
 
 **Features:**
+
 - Company information section
 - Multiple link columns (Company, Legal, Social)
 - Animated hover states with arrow indicators
@@ -140,7 +149,9 @@ src/
 ## Animation Components
 
 ### PageTransition
+
 Fade transition for page changes
+
 ```tsx
 <PageTransition delay={0}>
   <div>Content</div>
@@ -148,7 +159,9 @@ Fade transition for page changes
 ```
 
 ### FadeInUp
+
 Scroll-triggered fade and slide up animation
+
 ```tsx
 <FadeInUp delay={0.2}>
   <h2>Heading</h2>
@@ -156,7 +169,9 @@ Scroll-triggered fade and slide up animation
 ```
 
 ### ScaleIn
+
 Scroll-triggered scale animation
+
 ```tsx
 <ScaleIn delay={0.1}>
   <div>Card</div>
@@ -164,7 +179,9 @@ Scroll-triggered scale animation
 ```
 
 ### HoverScale
+
 Interactive hover scale with spring physics
+
 ```tsx
 <HoverScale scale={1.05}>
   <button>Click Me</button>
@@ -174,16 +191,19 @@ Interactive hover scale with spring physics
 ## Styling Approach
 
 ### CSS Modules
+
 - Component-scoped styling prevents class name conflicts
 - Named imports for each component
 - Organized by component structure
 
 ### Tailwind CSS
+
 - Utility-first approach for rapid development
 - Configured in `tailwind.config.ts`
 - Used alongside CSS Modules
 
 ### Global Styles
+
 - `src/app/globals.css` contains:
   - CSS custom properties/variables
   - Base typography styles
@@ -195,12 +215,14 @@ Interactive hover scale with spring physics
 ## Responsive Design
 
 **Breakpoints:**
+
 - **Desktop**: 1024px+
 - **Tablet**: 768px - 1023px
 - **Mobile**: Below 768px
 - **Small Mobile**: Below 480px
 
 **Mobile-First Approach:**
+
 - Start with mobile styles
 - Add desktop enhancements with `@media (min-width: ...)`
 - All components fully responsive
@@ -208,6 +230,7 @@ Interactive hover scale with spring physics
 ## SEO & Metadata
 
 **Implemented Features:**
+
 - ✅ Metadata configuration in root layout
 - ✅ Open Graph tags for social sharing
 - ✅ Twitter card meta tags
@@ -221,12 +244,14 @@ Interactive hover scale with spring physics
 ## TypeScript Integration
 
 **Type Safety:**
+
 - Full TypeScript throughout codebase
 - Component props with interfaces
 - Framer Motion types properly configured
 - No `any` types used
 
 **Notable Patterns:**
+
 ```tsx
 interface ComponentProps {
   children: ReactNode;
@@ -235,38 +260,44 @@ interface ComponentProps {
 
 export const Component = ({ children, delay = 0 }: ComponentProps) => {
   // ...
-}
+};
 ```
 
 ## Customization Guide
 
 ### Change Colors
+
 Edit CSS variables in `src/app/globals.css`:
+
 ```css
 :root {
-  --color-primary: #d4af37;      /* Change primary color */
-  --color-dark: #0a0a0a;         /* Change dark background */
-  --color-light: #f5f5f5;        /* Change light text */
+  --color-primary: #d4af37; /* Change primary color */
+  --color-dark: #0a0a0a; /* Change dark background */
+  --color-light: #f5f5f5; /* Change light text */
 }
 ```
 
 ### Update Brand Name
+
 1. `src/components/navbar/Navbar.tsx` - Logo
 2. `src/app/login/page.tsx` - Login title
 3. `src/app/layout.tsx` - Metadata title
 4. `src/components/footer/Footer.tsx` - Footer branding
 
 ### Add New Sections
+
 1. Create component in `src/components/sections/`
 2. Import in `src/app/home/page.tsx`
 3. Add to home page JSX
 
 ### Modify Animations
+
 - Edit variant definitions in animation components
 - Adjust durations, delays, and scales
 - Test with `whileHover`, `whileTap` props
 
 ### Add New Pages
+
 1. Create folder in `src/app/[pagename]/`
 2. Add `page.tsx` file
 3. Use `RootLayout` for consistent styling
@@ -275,22 +306,27 @@ Edit CSS variables in `src/app/globals.css`:
 ## Development Workflow
 
 ### Start Development Server
+
 ```bash
 npm run dev
 ```
+
 Open `http://localhost:3000` - will redirect to login page
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Start Production Server
+
 ```bash
 npm run start
 ```
 
 ### Run Linting
+
 ```bash
 npm run lint
 ```
@@ -311,32 +347,40 @@ npm run lint
 ## Common Tasks
 
 ### Change Button Color
+
 Edit color in component:
+
 ```tsx
 className={styles.button} // Edit .button class in module.css
 background: linear-gradient(135deg, #d4af37 0%, #c9a024 100%);
 ```
 
 ### Add Navigation Link
+
 Edit in `src/components/navbar/Navbar.tsx`:
+
 ```tsx
 const navItems: NavItem[] = [
-  { label: 'New Page', href: '#newpage' },
+  { label: "New Page", href: "#newpage" },
   // ... existing items
 ];
 ```
 
 ### Update Footer Links
+
 Edit in `src/components/footer/Footer.tsx`:
+
 ```tsx
 const companyLinks = [
-  { name: 'New Link', href: '#' },
+  { name: "New Link", href: "#" },
   // ... existing links
 ];
 ```
 
 ### Adjust Animation Speed
+
 Edit in animation components:
+
 ```tsx
 transition: {
   duration: 0.6, // Increase for slower animation
@@ -354,16 +398,19 @@ transition: {
 ## Troubleshooting
 
 **Build Issues:**
+
 - Clear `.next` folder: `rm -rf .next`
 - Reinstall dependencies: `rm -rf node_modules && npm install`
 - Check TypeScript: `npm run build`
 
 **Animation Issues:**
+
 - Ensure `whileInView` has `viewport={{ once: true }}`
 - Check `duration` values (seconds, not milliseconds)
 - Verify Framer Motion is installed: `npm list framer-motion`
 
 **Styling Issues:**
+
 - Clear browser cache
 - Check CSS Modules naming (case-sensitive)
 - Verify Tailwind is configured correctly
@@ -371,6 +418,7 @@ transition: {
 ## Deployment
 
 ### Vercel (Recommended)
+
 ```bash
 # Push to GitHub
 git push origin main
@@ -379,6 +427,7 @@ git push origin main
 ```
 
 ### Other Platforms
+
 ```bash
 npm run build
 npm run start
@@ -388,6 +437,7 @@ npm run start
 ## Future Enhancements
 
 Potential additions:
+
 - [ ] Dark mode toggle
 - [ ] Multilingual support
 - [ ] Blog functionality
@@ -409,6 +459,7 @@ Potential additions:
 ## Support
 
 For issues or customizations:
+
 1. Check the documentation above
 2. Review component code comments
 3. Test changes in development server

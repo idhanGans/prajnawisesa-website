@@ -28,17 +28,17 @@ export const GeometricBackground = () => {
           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop
               offset="0%"
-              style={{ stopColor: "#d4af37", stopOpacity: 0.15 }}
+              style={{ stopColor: "#d4b896", stopOpacity: 0.15 }}
             />
             <stop
               offset="100%"
-              style={{ stopColor: "#888", stopOpacity: 0.05 }}
+              style={{ stopColor: "#c0c0c0", stopOpacity: 0.05 }}
             />
           </linearGradient>
         </defs>
 
         {/* Static Background Shapes */}
-        <rect width="1000" height="1000" fill="#0a0a0a" />
+        <rect width="1000" height="1000" fill="#000000" />
 
         {/* Animated Geometric Shapes */}
         {shapes.map((i) => (

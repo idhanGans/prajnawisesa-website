@@ -1,51 +1,94 @@
 .footer {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4rem 2rem;
-  margin-top: 6rem;
+  background: #000000;
+  padding: 6rem 3rem 3rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  position: relative;
 }
 
-.grid {
+/* Top Section */
+.topSection {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr 2fr;
+  gap: 6rem;
+  margin-bottom: 4rem;
 }
 
-.column {
+.brandColumn {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.heading {
+.brandName {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #f5f5f5;
+  color: #ffffff;
+  letter-spacing: 2px;
   margin: 0;
 }
 
-.subHeading {
-  font-size: 1rem;
+.brandTagline {
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contactEmail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.contactEmail span {
+  color: #c0c0c0;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.contactEmail a {
+  color: #d4b896;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactEmail a:hover {
+  color: #ffffff;
+}
+
+/* Links Column */
+.linksColumn {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.linkTitle {
+  color: #d4b896;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: #d4af37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   margin: 0;
 }
 
-.description {
-  font-size: 0.9rem;
-  color: #888;
-  line-height: 1.6;
-  margin: 0.5rem 0 0 0;
-}
-
-.links,
-.socialLinks {
+.linkList {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -54,99 +97,107 @@
   gap: 0.75rem;
 }
 
-.links a,
-.socialLinks a {
-  color: #b0b0b0;
+.linkList a {
+  color: #c0c0c0;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
-  position: relative;
+  display: inline-block;
 }
 
-.links a::before {
-  content: "→";
-  position: absolute;
-  left: -1.25rem;
-  opacity: 0;
-  transition: all 0.3s ease;
+.linkList a:hover {
+  color: #ffffff;
 }
 
-.links a:hover,
-.socialLinks a:hover {
-  color: #d4af37;
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.links a:hover::before {
-  opacity: 1;
-  left: -1.5rem;
+.locationInfo p {
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  margin: 0;
 }
 
+/* Divider */
 .divider {
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(212, 184, 150, 0.2),
     transparent
   );
   margin-bottom: 2rem;
 }
 
-.bottom {
+/* Bottom Section */
+.bottomSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .copyright,
-.credit {
+.credits {
+  color: #666666;
   font-size: 0.85rem;
-  color: #666;
   margin: 0;
 }
 
-.copyright {
-  flex: 1;
-}
-
-.credit {
-  text-align: right;
-  flex: 1;
+/* Large Brand */
+.largeBrand {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.02);
+  letter-spacing: 10px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+  .topSection {
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
 
-  .footer {
-    padding: 3rem 1.5rem;
+  .linksColumn {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .footer {
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .linksColumn {
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
-  .bottom {
+  .bottomSection {
     flex-direction: column;
+    gap: 1rem;
     text-align: center;
   }
 
-  .copyright,
-  .credit {
-    text-align: center;
-    flex: none;
+  .largeBrand {
+    font-size: 3rem;
+    bottom: -0.5rem;
   }
+}
 
-  .footer {
-    padding: 2rem 1rem;
-    margin-top: 4rem;
+@media (max-width: 480px) {
+  .linksColumn {
+    grid-template-columns: 1fr;
   }
 }

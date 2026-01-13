@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
-import { useState } from "react";
-import { HoverScale } from "@/components/animations";
+import { gsap } from "gsap";
 import styles from "./Navbar.module.css";
 
 interface NavItem {
@@ -16,118 +15,202 @@ const navItems: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact Us", href: "#contact" },
 ];
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState("Home");
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuItemsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
-  const handleNavClick = (label: string) => {
-    setActiveItem(label);
-    setIsOpen(false);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
 
-  const menuVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Setup GSAP timeline for menu animation
+    const tl = gsap.timeline({ paused: true });
+
+    tl.to(
+      overlayRef.current,
+      {
+        opacity: 1,
+        visibility: "visible",
+        duration: 0.3,
       },
-    },
-  };
+      0
+    )
+      .to(
+        menuRef.current,
+        {
+          x: 0,
+          duration: 0.5,
+        },
+        0
+      )
+      .fromTo(
+        menuItemsRef.current,
+        { x: 100, opacity: 0 },
+        { x: 0, opacity: 1, stagger: 0.08, duration: 0.4 },
+        0.2
+      );
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3 },
+    timelineRef.current = tl;
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (timelineRef.current) {
+      if (isMenuOpen) {
+        document.body.style.overflow = "hidden";
+        timelineRef.current.play();
+      } else {
+        document.body.style.overflow = "";
+        timelineRef.current.reverse();
+      }
+    }
+  }, [isMenuOpen]);
+
+  const handleLinkClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
+      e.preventDefault();
+      setActiveItem(label);
+      setIsMenuOpen(false);
+
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
     },
+    []
+  );
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <motion.nav
-      className={styles.navbar}
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className={styles.container}>
-        {/* Logo */}
-        <div className={styles.logo}>
-          <Link href="/">
-            <span>Prajnawisesa</span>
+    <>
+      <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={styles.container}>
+          <Link
+            href="#home"
+            className={styles.logo}
+            onClick={(e) => handleLinkClick(e, "#home", "Home")}
+          >
+            <span className={styles.logoText}>PRAJNAWISESA</span>
           </Link>
-        </div>
 
-        {/* Desktop Navigation */}
-        <motion.ul
-          className={styles.navMenu}
-          variants={menuVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {navItems.map((item) => (
-            <motion.li key={item.label} variants={itemVariants}>
-              <HoverScale scale={1.1}>
-                <a
-                  href={item.href}
-                  className={`${styles.navLink} ${
-                    activeItem === item.label ? styles.active : ""
-                  }`}
-                  onClick={() => handleNavClick(item.label)}
-                >
-                  {item.label}
-                </a>
-              </HoverScale>
-            </motion.li>
-          ))}
-        </motion.ul>
-
-        {/* CTA Button */}
-        <HoverScale>
-          <button className={styles.ctaButton}>Get Started</button>
-        </HoverScale>
-
-        {/* Mobile Menu Button */}
-        <button
-          className={styles.mobileMenuBtn}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <motion.ul
-          className={styles.mobileMenu}
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-        >
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <a
+          <nav className={styles.desktopNav}>
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
                 href={item.href}
-                className={`${styles.mobileNavLink} ${
+                className={`${styles.navLink} ${
                   activeItem === item.label ? styles.active : ""
                 }`}
-                onClick={() => handleNavClick(item.label)}
+                onClick={(e) => handleLinkClick(e, item.href, item.label)}
               >
-                {item.label}
+                <span className={styles.navLinkText}>{item.label}</span>
+              </Link>
+            ))}
+          </nav>
+
+          <button className={styles.ctaButton}>Get Started</button>
+
+          <button
+            className={`${styles.menuButton} ${
+              isMenuOpen ? styles.menuButtonActive : ""
+            }`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span className={styles.menuLine}></span>
+            <span className={styles.menuLine}></span>
+            <span className={styles.menuLine}></span>
+          </button>
+        </div>
+      </header>
+
+      {/* Overlay */}
+      <div
+        ref={overlayRef}
+        className={styles.overlay}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Slide-out Menu */}
+      <div ref={menuRef} className={styles.slideMenu}>
+        <div className={styles.slideMenuContent}>
+          <div className={styles.menuHeader}>
+            <span className={styles.menuTitle}>Navigation</span>
+            <button
+              className={styles.closeButton}
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              ✕
+            </button>
+          </div>
+
+          <nav className={styles.menuNav}>
+            {navItems.map((item, index) => (
+              <div
+                key={item.label}
+                ref={(el) => {
+                  menuItemsRef.current[index] = el;
+                }}
+                className={styles.menuItem}
+              >
+                <Link
+                  href={item.href}
+                  className={styles.menuLink}
+                  onClick={(e) => handleLinkClick(e, item.href, item.label)}
+                >
+                  <span className={styles.menuLinkNumber}>0{index + 1}</span>
+                  <span className={styles.menuLinkTitle}>{item.label}</span>
+                </Link>
+              </div>
+            ))}
+          </nav>
+
+          <div className={styles.menuFooter}>
+            <p className={styles.menuFooterText}>
+              Business Consulting Excellence
+            </p>
+            <div className={styles.socialLinks}>
+              <a
+                href="mailto:contact@prajnawisesa.com"
+                className={styles.socialLink}
+              >
+                Email
               </a>
-            </li>
-          ))}
-        </motion.ul>
-      )}
-    </motion.nav>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
