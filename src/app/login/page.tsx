@@ -21,7 +21,7 @@ export default function LoginPage() {
         gsap.fromTo(
           chars,
           { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, stagger: 0.05, duration: 1, delay: 0.5 }
+          { y: 0, opacity: 1, stagger: 0.05, duration: 1, delay: 0.5 },
         );
       }
     }, containerRef);
