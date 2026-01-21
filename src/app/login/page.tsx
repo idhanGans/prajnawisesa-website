@@ -68,7 +68,9 @@ export default function LoginPage() {
 
           {/* Title */}
           <h1 ref={titleRef} className={styles.title}>
-            {splitText("PRAJNAWISESA")}
+            {splitText("PRAJNA")}
+            <br />
+            {splitText("WISESA")}
           </h1>
 
           {/* Subtitle */}
