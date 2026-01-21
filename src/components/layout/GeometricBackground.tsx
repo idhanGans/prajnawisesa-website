@@ -95,7 +95,7 @@ export const GeometricBackground = () => {
             <path
               d="M 100 0 L 0 0 0 100"
               fill="none"
-              stroke="rgba(212, 175, 55, 0.05)"
+              stroke="rgba(117, 138, 147, 0.05)"
               strokeWidth="1"
             />
           </pattern>

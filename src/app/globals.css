@@ -1,28 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Primary Palette - White, Gray, Black, Beige */
-  --color-primary: #c9a87c;
-  --color-primary-dark: #b8956a;
-  --color-secondary: #6b7280;
-  --color-dark: #1a1a1a;
-  --color-darker: #0f0f0f;
+  /* PRAJNAWISESA Futuristic Color Palette */
+  --color-primary: #f8f6f3;
+  --color-secondary: #e8e3dc;
+  --color-accent: #2d3748;
+  --color-border: #000000;
+  --color-dark: #0f1419;
+  --color-darker: #000000;
   --color-light: #ffffff;
   --color-white: #ffffff;
   --color-off-white: #fafafa;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-  --color-beige: #c9a87c;
-  --color-beige-light: #e8d5b7;
-  --color-beige-dark: #a88b5a;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #27272a;
+  --color-gray-900: #18181b;
+  --color-beige: #e8e3dc;
+  --color-beige-light: #f8f6f3;
+  --color-beige-dark: #d4cfc6;
   --color-black: #000000;
 
   --font-sans: var(--font-poppins);
@@ -49,7 +50,11 @@ html {
 body {
   background: #ffffff;
   color: var(--color-dark);
-  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  font-family:
+    var(--font-poppins),
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.6;
   font-size: 16px;
   overflow-x: hidden;

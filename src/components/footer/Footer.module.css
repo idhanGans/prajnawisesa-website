@@ -1,8 +1,9 @@
 .footer {
-  background: #1a1a1a;
-  padding: 6rem 3rem 3rem;
+  background: linear-gradient(180deg, #27272a 0%, #18181b 100%);
+  padding: 6rem 4rem 3rem;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid #3f3f46;
 }
 
 .container {
@@ -17,6 +18,8 @@
   grid-template-columns: 1fr 2fr;
   gap: 6rem;
   margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #52525b;
 }
 
 .brandColumn {
@@ -29,12 +32,12 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin: 0;
 }
 
 .brandTagline {
-  color: #9ca3af;
+  color: #e4e4e7;
   font-size: 0.95rem;
   line-height: 1.7;
   margin: 0;
@@ -48,16 +51,17 @@
 }
 
 .contactEmail span {
-  color: #9ca3af;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
+  color: #d4d4d8;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .contactEmail a {
-  color: #c9a87c;
+  color: #f8f6f3;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -80,10 +84,10 @@
 }
 
 .linkTitle {
-  color: #c9a87c;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 2px;
+  color: #f8f6f3;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   margin: 0;
 }
@@ -98,7 +102,7 @@
 }
 
 .linkList a {
-  color: #9ca3af;
+  color: #e4e4e7;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
@@ -116,7 +120,7 @@
 }
 
 .locationInfo p {
-  color: #9ca3af;
+  color: #e4e4e7;
   font-size: 0.95rem;
   margin: 0;
 }
@@ -127,7 +131,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(201, 168, 124, 0.3),
+    rgba(161, 161, 170, 0.3),
     transparent
   );
   margin-bottom: 2rem;
@@ -142,21 +146,22 @@
 
 .copyright,
 .credits {
-  color: #6b7280;
-  font-size: 0.85rem;
+  color: #d4d4d8;
+  font-size: 0.95rem;
   margin: 0;
+  font-weight: 500;
 }
 
 /* Large Brand */
 .largeBrand {
   position: absolute;
-  bottom: -2rem;
+  bottom: -1rem;
   left: 50%;
   transform: translateX(-50%);
-  font-size: clamp(4rem, 15vw, 12rem);
+  font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.02);
-  letter-spacing: 10px;
+  color: rgba(255, 255, 255, 0.05);
+  letter-spacing: 8px;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;

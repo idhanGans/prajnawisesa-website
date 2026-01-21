@@ -68,7 +68,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#d4af37" />
+        <meta name="theme-color" content="#758A93" />
       </head>
       <body className={`${poppins.variable} antialiased`}>{children}</body>
     </html>
