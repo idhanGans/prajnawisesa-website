@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,6 +15,92 @@ import styles from "./page.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const HeroSlider = () => {
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const slides = [
+    {
+      type: "image",
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop",
+      alt: "Professional business consulting team",
+      title: "Expert Team",
+      description: "Leading consultants with 15+ years experience",
+    },
+    {
+      type: "news",
+      title: "Market Growth Report 2024",
+      description: "New insights on business transformation trends",
+      date: "Jan 20, 2024",
+    },
+    {
+      type: "image",
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop",
+      alt: "Strategic business planning session",
+      title: "Strategy Session",
+      description: "Tailored solutions for your business goals",
+    },
+    {
+      type: "news",
+      title: "Digital Transformation Success",
+      description: "Client achieves 45% revenue growth",
+      date: "Jan 18, 2024",
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
+  return (
+    <div className={styles.heroSlider} ref={sliderRef}>
+      <div className={styles.sliderContainer}>
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`${styles.slide} ${
+              index === currentSlide ? styles.active : ""
+            }`}
+          >
+            {slide.type === "image" ? (
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                className={styles.slideImage}
+                loading="lazy"
+              />
+            ) : (
+              <div className={styles.slideNews}>
+                <span className={styles.newsDate}>{slide.date}</span>
+                <h3 className={styles.newsTitle}>{slide.title}</h3>
+                <p className={styles.newsDescription}>{slide.description}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Slider indicators */}
+      <div className={styles.sliderIndicators}>
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`${styles.indicator} ${
+              index === currentSlide ? styles.active : ""
+            }`}
+            onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -25,7 +111,7 @@ const HeroSection = () => {
       gsap.fromTo(
         ".gridLine",
         { scaleY: 0 },
-        { scaleY: 1, stagger: 0.1, duration: 1.5, delay: 0.5 }
+        { scaleY: 1, stagger: 0.1, duration: 1.5, delay: 0.5 },
       );
 
       // Scroll-based parallax
@@ -52,47 +138,51 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className={styles.heroContent}>
-        <div className={styles.heroLabel}>
-          <span className={styles.labelLine}></span>
-          <span>Business Consulting Excellence</span>
+      <div className={styles.container}>
+        <div className={styles.heroContent}>
+          <div className={styles.heroLabel}>
+            <span className={styles.labelLine}></span>
+            <span>Business Consulting Excellence</span>
+          </div>
+
+          <h1 ref={titleRef} className={styles.heroTitle}>
+            <TextReveal>
+              <span className={styles.titleLight}>Strategic</span>
+            </TextReveal>
+            <TextReveal delay={0.1}>
+              <span className={styles.titleBold}>Business</span>
+            </TextReveal>
+            <TextReveal delay={0.2}>
+              <span className={styles.highlight}>Solutions</span>
+            </TextReveal>
+          </h1>
+
+          <FadeInUp delay={0.6}>
+            <p className={styles.heroSubtitle}>
+              Transform your business with expert consulting services. We
+              deliver innovative strategies that drive growth and success.
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={0.8}>
+            <div className={styles.heroButtons}>
+              <AnimatedButton label="Get Started" href="#contact" />
+              <AnimatedButton
+                label="Our Services"
+                href="#services"
+                variant="outline"
+              />
+            </div>
+          </FadeInUp>
         </div>
 
-        <h1 ref={titleRef} className={styles.heroTitle}>
-          <TextReveal>
-            <span className={styles.titleLight}>Strategic</span>
-          </TextReveal>
-          <TextReveal delay={0.1}>
-            <span className={styles.titleBold}>Business</span>
-          </TextReveal>
-          <TextReveal delay={0.2}>
-            <span className={styles.highlight}>Solutions</span>
-          </TextReveal>
-        </h1>
+        <HeroSlider />
+      </div>
 
-        <FadeInUp delay={0.6}>
-          <p className={styles.heroSubtitle}>
-            Transform your business with expert consulting services. We deliver
-            innovative strategies that drive growth and success.
-          </p>
-        </FadeInUp>
-
-        <FadeInUp delay={0.8}>
-          <div className={styles.heroButtons}>
-            <AnimatedButton label="Get Started" href="#contact" />
-            <AnimatedButton
-              label="Our Services"
-              href="#services"
-              variant="outline"
-            />
-          </div>
-        </FadeInUp>
-
-        <div className={styles.scrollIndicator}>
-          <span>Scroll</span>
-          <div className={styles.scrollLine}>
-            <div className={styles.scrollDot}></div>
-          </div>
+      <div className={styles.scrollIndicator}>
+        <span>Scroll</span>
+        <div className={styles.scrollLine}>
+          <div className={styles.scrollDot}></div>
         </div>
       </div>
     </section>
@@ -115,7 +205,7 @@ const AboutSection = () => {
             trigger: sectionRef.current,
             start: "top 70%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -171,13 +261,26 @@ const AboutSection = () => {
             </FadeInUp>
           </div>
 
-          <div className={styles.aboutStats}>
-            {stats.map((stat) => (
-              <div key={stat.label} className={`${styles.statCard} aboutStat`}>
-                <span className={styles.statNumber}>{stat.number}</span>
-                <span className={styles.statLabel}>{stat.label}</span>
-              </div>
-            ))}
+          <div>
+            <div className={styles.aboutImageWrapper}>
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
+                alt="Professional business team collaboration"
+                className={styles.aboutImage}
+              />
+            </div>
+
+            <div className={styles.aboutStats}>
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className={`${styles.statCard} aboutStat`}
+                >
+                  <span className={styles.statNumber}>{stat.number}</span>
+                  <span className={styles.statLabel}>{stat.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -197,6 +300,9 @@ const ServicesSection = () => {
         "Growth Strategy",
         "Competitive Positioning",
       ],
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+      imageAlt: "Business strategy meeting",
     },
     {
       number: "02",
@@ -204,6 +310,9 @@ const ServicesSection = () => {
       description:
         "Optimize your operations for maximum efficiency and sustainable performance.",
       features: ["Process Optimization", "Cost Reduction", "Supply Chain"],
+      image:
+        "https://images.unsplash.com/photo-1531746790731-6c087fecd65b?w=400&h=300&fit=crop",
+      imageAlt: "Operations management",
     },
     {
       number: "03",
@@ -211,6 +320,9 @@ const ServicesSection = () => {
       description:
         "Navigate the digital landscape with innovative technology solutions.",
       features: ["Tech Assessment", "Digital Strategy", "Implementation"],
+      image:
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
+      imageAlt: "Digital transformation technology",
     },
     {
       number: "04",
@@ -218,6 +330,9 @@ const ServicesSection = () => {
       description:
         "Make informed financial decisions with expert guidance and analysis.",
       features: ["M&A Advisory", "Valuation", "Due Diligence"],
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
+      imageAlt: "Financial analysis charts",
     },
   ];
 
@@ -245,6 +360,14 @@ const ServicesSection = () => {
                 whileHover={{ y: -10 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
+                <div className={styles.serviceImageWrapper}>
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    className={styles.serviceImage}
+                  />
+                  <div className={styles.serviceImageOverlay}></div>
+                </div>
                 <span className={styles.serviceNumber}>{service.number}</span>
                 <h3 className={styles.serviceTitle}>{service.title}</h3>
                 <p className={styles.serviceDescription}>
@@ -271,18 +394,27 @@ const ProjectsSection = () => {
       category: "Strategy",
       description: "Complete digital transformation for a Fortune 500 retailer",
       result: "+45% Revenue Growth",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      imageAlt: "Modern retail store interior",
     },
     {
       title: "Manufacturing Excellence",
       category: "Operations",
       description: "Supply chain optimization across 12 countries",
       result: "-30% Operating Costs",
+      image:
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+      imageAlt: "Industrial factory floor",
     },
     {
       title: "Tech Startup Scale-up",
       category: "Growth",
       description: "Strategic planning for Series B funding",
       result: "$50M Funding Secured",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      imageAlt: "Tech startup team collaboration",
     },
   ];
 
@@ -309,6 +441,13 @@ const ProjectsSection = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className={styles.projectImage}>
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      className={styles.projectImageImg}
+                    />
+                  )}
                   <span className={styles.projectIndex}>0{index + 1}</span>
                 </div>
                 <div className={styles.projectInfo}>
@@ -387,6 +526,13 @@ const ContactSection = () => {
 
           <div className={styles.contactForm}>
             <FadeInUp delay={0.2}>
+              <div className={styles.contactImageWrapper}>
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop"
+                  alt="Team collaboration and communication"
+                  className={styles.contactImage}
+                />
+              </div>
               <form className={styles.form}>
                 <div className={styles.formGroup}>
                   <input type="text" placeholder="Your Name" required />
