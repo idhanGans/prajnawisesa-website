@@ -5,13 +5,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/abstract-asymmetric-vector-black-white-object-with-lines-mesh-placed-shaded-background_570429-41622.avif");
+  background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 8rem 4rem 6rem;
   overflow: hidden;
+  box-shadow: inset 0 -20px 60px rgba(0, 0, 0, 0.05);
 }
 
 .hero .container {
@@ -125,7 +126,7 @@
   z-index: 5;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2), 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .sliderContainer {
@@ -319,12 +320,14 @@
 /* About Section */
 .about {
   padding: 10rem 4rem;
-  background: url("/abstract-asymmetric-vector-black-white-object-with-lines-mesh-placed-shaded-background_570429-41622.avif");
+  background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   border-top: 1px solid #e4e4e7;
   position: relative;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.03), inset 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .about::before {
@@ -388,6 +391,7 @@
   border-radius: 0;
   overflow: hidden;
   margin-bottom: 3rem;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
 }
 
 .aboutImage {
@@ -434,6 +438,7 @@
   padding: 3rem 2.5rem;
   text-align: center;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .statCard:hover {
@@ -464,12 +469,14 @@
 /* Services Section */
 .services {
   padding: 10rem 4rem;
-  background: url("/abstract-asymmetric-vector-black-white-object-with-lines-mesh-placed-shaded-background_570429-41622.avif");
+  background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   border-top: 1px solid #e4e4e7;
   position: relative;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.03), inset 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .services::before {
@@ -527,6 +534,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 .serviceImageWrapper {
@@ -639,12 +647,14 @@
 /* Projects Section */
 .projects {
   padding: 10rem 4rem;
-  background: url("/abstract-asymmetric-vector-black-white-object-with-lines-mesh-placed-shaded-background_570429-41622.avif");
+  background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   border-top: 1px solid #e4e4e7;
   position: relative;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.03), inset 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .projects::before {
@@ -697,6 +707,7 @@
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 .projectCard:hover {
@@ -777,12 +788,14 @@
 /* Contact Section */
 .contact {
   padding: 10rem 4rem;
-  background: url("/abstract-asymmetric-vector-black-white-object-with-lines-mesh-placed-shaded-background_570429-41622.avif");
+  background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   border-top: 1px solid #e4e4e7;
   position: relative;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.03), inset 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
 .contact::before {
@@ -880,6 +893,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .contactImageWrapper {
