@@ -195,9 +195,7 @@ export default function LoginPage() {
             onClick={handleEnter}
             disabled={isAnimating}
           >
-            <span className={styles.buttonText} className="text-2xl">
-              Enter Site
-            </span>
+            <span className={`${styles.buttonText} text-2xl`}>Enter Site</span>
           </motion.button>
         )}
       </div>
