@@ -15,105 +15,12 @@ import styles from "./page.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSlider = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-
-  const slides = [
-    {
-      type: "image",
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop",
-      alt: "Professional business consulting team",
-      title: "Expert Team",
-      description: "Leading consultants with 15+ years experience",
-    },
-    {
-      type: "news",
-      title: "Market Growth Report 2024",
-      description: "New insights on business transformation trends",
-      date: "Jan 20, 2024",
-    },
-    {
-      type: "image",
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop",
-      alt: "Strategic business planning session",
-      title: "Strategy Session",
-      description: "Tailored solutions for your business goals",
-    },
-    {
-      type: "news",
-      title: "Digital Transformation Success",
-      description: "Client achieves 45% revenue growth",
-      date: "Jan 18, 2024",
-    },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
-  return (
-    <div className={styles.heroSlider} ref={sliderRef}>
-      <div className={styles.sliderContainer}>
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`${styles.slide} ${
-              index === currentSlide ? styles.active : ""
-            }`}
-          >
-            {slide.type === "image" ? (
-              <img
-                src={slide.src}
-                alt={slide.alt}
-                className={styles.slideImage}
-                loading="lazy"
-              />
-            ) : (
-              <div className={styles.slideNews}>
-                <span className={styles.newsDate}>{slide.date}</span>
-                <h3 className={styles.newsTitle}>{slide.title}</h3>
-                <p className={styles.newsDescription}>{slide.description}</p>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Slider indicators */}
-      <div className={styles.sliderIndicators}>
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`${styles.indicator} ${
-              index === currentSlide ? styles.active : ""
-            }`}
-            onClick={() => setCurrentSlide(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate grid lines
-      gsap.fromTo(
-        ".gridLine",
-        { scaleY: 0 },
-        { scaleY: 1, stagger: 0.1, duration: 1.5, delay: 0.5 },
-      );
-
       // Scroll-based parallax
       gsap.to(titleRef.current, {
         y: 100,
@@ -132,12 +39,6 @@ const HeroSection = () => {
 
   return (
     <section id="home" ref={heroRef} className={styles.hero}>
-      <div className={styles.heroGrid}>
-        {[...Array(5)].map((_, i) => (
-          <div key={i} className={`${styles.gridLine} gridLine`} />
-        ))}
-      </div>
-
       <div className={styles.container}>
         <div className={styles.heroContent}>
           <div className={styles.heroLabel}>
@@ -147,20 +48,17 @@ const HeroSection = () => {
 
           <h1 ref={titleRef} className={styles.heroTitle}>
             <TextReveal>
-              <span className={styles.titleLight}>Strategic</span>
+              <span>Strategic Excellence</span>
             </TextReveal>
             <TextReveal delay={0.1}>
-              <span className={styles.titleBold}>Business</span>
-            </TextReveal>
-            <TextReveal delay={0.2}>
-              <span className={styles.highlight}>Solutions</span>
+              <span>in Business Consulting</span>
             </TextReveal>
           </h1>
 
           <FadeInUp delay={0.6}>
             <p className={styles.heroSubtitle}>
-              Transform your business with expert consulting services. We
-              deliver innovative strategies that drive growth and success.
+              Empowering businesses through innovative strategies and
+              sustainable growth solutions
             </p>
           </FadeInUp>
 
@@ -168,15 +66,13 @@ const HeroSection = () => {
             <div className={styles.heroButtons}>
               <AnimatedButton label="Get Started" href="#contact" />
               <AnimatedButton
-                label="Our Services"
-                href="#services"
+                label="View Our Work"
+                href="#projects"
                 variant="outline"
               />
             </div>
           </FadeInUp>
         </div>
-
-        <HeroSlider />
       </div>
 
       <div className={styles.scrollIndicator}>
@@ -560,14 +456,16 @@ const ContactSection = () => {
   );
 };
 
-export default function HomePage() {
+export default function Home() {
   return (
     <RootLayout>
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
     </RootLayout>
   );
 }

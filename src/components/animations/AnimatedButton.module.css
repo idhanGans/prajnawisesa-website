@@ -99,20 +99,21 @@
 /* Outline Variant */
 .outline {
   background: transparent;
-  color: #000000;
-  border: 1px solid #000000;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .outline .hoverEffect {
-  background: #000000;
+  background: #ffffff;
 }
 
 .outline:hover {
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
 }
 
 .outline:hover .label,
 .outline:hover .arrow {
-  color: #ffffff;
+  color: #000000;
 }
