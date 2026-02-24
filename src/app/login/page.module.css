@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
-
 .container {
   position: relative;
   width: 100%;
@@ -10,13 +8,13 @@
   align-items: center;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(255, 255, 255, 0.08),
-      rgba(0, 0, 0, 0.9) 55%,
-      rgba(0, 0, 0, 1) 100%
-    ),
-    #000000;
+    linear-gradient(
+      160deg,
+      #0a0f1a 0%,
+      #0d1321 30%,
+      #111827 60%,
+      #0f172a 100%
+    );
 }
 
 .container::before {
@@ -26,11 +24,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    circle at 50% 45%,
-    rgba(255, 255, 255, 0.08),
-    rgba(0, 0, 0, 0.9) 60%
-  );
+  background:
+    radial-gradient(
+      ellipse at 30% 20%,
+      rgba(201, 169, 110, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 70% 80%,
+      rgba(201, 169, 110, 0.03) 0%,
+      transparent 50%
+    );
   pointer-events: none;
   z-index: 1;
 }
@@ -39,19 +43,17 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(255, 255, 255, 0.05),
-    transparent 60%
-  );
-  opacity: 0.7;
-  z-index: 2;
+  background:
+    linear-gradient(0deg, rgba(10, 15, 26, 0.6) 0%, transparent 30%),
+    linear-gradient(180deg, rgba(10, 15, 26, 0.4) 0%, transparent 20%);
+  pointer-events: none;
+  z-index: 5;
 }
 
 .canvasLayer {
   position: absolute;
   inset: 0;
-  z-index: 4;
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -59,33 +61,84 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0;
   text-align: center;
   z-index: 20;
   position: relative;
-  max-width: 720px;
+  max-width: 800px;
   padding: 2rem;
+}
+
+/* Top Label */
+.topLabel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: rgba(201, 169, 110, 0.6);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.labelLine {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 169, 110, 0.4),
+    transparent
+  );
 }
 
 /* Title */
 .title {
-  font-family: "Bungee", cursive;
-  font-size: clamp(2.8rem, 10vw, 6rem);
-  font-weight: 400;
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+  font-weight: 300;
   color: #ffffff;
   margin: 0;
-  letter-spacing: 2px;
-  line-height: 1.05;
+  letter-spacing: clamp(6px, 2vw, 16px);
+  line-height: 1.1;
   overflow: hidden;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+}
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 169, 110, 0.6),
+    transparent
+  );
+  margin: 1.5rem 0;
+  transform-origin: center;
 }
 
 /* Subtitle */
 .subtitle {
-  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0.75rem 0 0.5rem;
-  font-weight: 500;
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+  color: rgba(201, 169, 110, 0.8);
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* Tagline */
+.tagline {
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 2.5rem 0;
+  font-weight: 300;
   letter-spacing: 1px;
+  max-width: 400px;
+  line-height: 1.6;
 }
 
 /* Button */
@@ -94,20 +147,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background: #e8e8ea;
-  color: #111111;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  padding: 0.8rem 2.4rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+  gap: 0.75rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  padding: 0.9rem 2.8rem;
+  font-size: 0.8rem;
+  font-weight: 400;
   cursor: pointer;
   overflow: hidden;
   z-index: 20;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: 0.5px;
-  border-radius: 6px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: inherit;
 }
 
 .button::before {
@@ -117,8 +170,8 @@
   left: 0;
   width: 0;
   height: 100%;
-  background: rgba(0, 0, 0, 0.08);
-  transition: width 0.4s ease;
+  background: rgba(201, 169, 110, 0.1);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: -1;
 }
 
@@ -127,10 +180,11 @@
 }
 
 .button:hover {
-  color: #000000;
-  background: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  border-color: rgba(201, 169, 110, 0.6);
+  box-shadow:
+    0 0 30px rgba(201, 169, 110, 0.08),
+    inset 0 0 20px rgba(201, 169, 110, 0.03);
 }
 
 .buttonText {
@@ -138,21 +192,48 @@
   z-index: 2;
 }
 
+.buttonArrow {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.button:hover .buttonArrow {
+  transform: translateX(4px);
+}
+
 .button:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
+/* Footer */
 .footer {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.35);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  z-index: 20;
+}
+
+.footerLeft,
+.footerCenter,
+.footerRight {
+  color: rgba(255, 255, 255, 0.2);
   font-size: 0.65rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  z-index: 20;
+  font-weight: 400;
+}
+
+.footerCenter {
+  color: rgba(255, 255, 255, 0.15);
 }
 
 /* Responsive */
@@ -163,22 +244,43 @@
 
   .content {
     padding: 1.5rem;
-    gap: 1rem;
   }
 
   .button {
-    padding: 0.75rem 2rem;
-    font-size: 0.8rem;
+    padding: 0.8rem 2.2rem;
+    font-size: 0.75rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .footerLeft,
+  .footerRight {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .title {
-    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .topLabel {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    letter-spacing: 2px;
+    font-size: 0.75rem;
   }
 
   .button {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    padding: 0.75rem 2rem;
   }
 }
