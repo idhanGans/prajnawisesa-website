@@ -9,7 +9,7 @@ interface AnimatedButtonProps {
   href?: string;
   label: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "dark";
   target?: boolean;
   className?: string;
 }

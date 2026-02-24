@@ -438,6 +438,49 @@
   font-weight: 600;
 }
 
+/* Clients Section */
+.clients {
+  padding: 5rem 4rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.clientsLabel {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.clientsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.clientItem {
+  padding: 1rem 1.5rem;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.clientItem:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 /* Services Section */
 .services {
   padding: 10rem 4rem;
@@ -618,6 +661,33 @@
   color: #000000;
 }
 
+.serviceCardCta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 3rem 2.5rem 3rem;
+  color: #2d3748;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.serviceArrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover .serviceCardCta {
+  color: #000000;
+}
+
+.serviceCard:hover .serviceArrow {
+  transform: translateX(4px);
+}
+
 /* Projects Section */
 .projects {
   padding: 10rem 4rem;
@@ -757,6 +827,43 @@
   font-weight: 700;
 }
 
+.projectViewMore {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  color: #000000;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.projectArrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projectCard:hover .projectViewMore {
+  gap: 0.75rem;
+}
+
+.projectDetails {
+  padding: 0 2.5rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f6f3 0%, #ffffff 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.projectDetails p {
+  padding: 2rem 0;
+  color: #3f3f46;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
 .projectsCta {
   text-align: center;
 }
@@ -836,6 +943,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contactItem:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .contactLabel {
@@ -846,7 +961,6 @@
   font-weight: 600;
 }
 
-.contactItem a,
 .contactItem span:last-child {
   color: #000000;
   font-size: 1.2rem;
@@ -855,7 +969,7 @@
   transition: color 0.3s ease;
 }
 
-.contactItem a:hover {
+.contactItem:hover span:last-child {
   color: #2d3748;
 }
 
@@ -928,6 +1042,154 @@
 .formGroup textarea {
   resize: vertical;
   min-height: 150px;
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  font-family: inherit;
+  width: 100%;
+  justify-content: center;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submitArrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.submitButton:hover:not(:disabled) .submitArrow {
+  transform: translateX(4px);
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 1px solid #6ee7b7;
+  border-radius: 6px;
+  color: #065f46;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.successMessage svg {
+  flex-shrink: 0;
+  color: #059669;
+}
+
+.whatsappButton {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsappButton:hover {
+  background: #128c7e;
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+.whatsappTooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000000;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.whatsappButton:hover .whatsappTooltip {
+  opacity: 1;
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.backToTop:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
@@ -1022,6 +1284,19 @@
     gap: 3rem;
   }
 
+  .clients {
+    padding: 3rem 1.5rem;
+  }
+
+  .clientsGrid {
+    gap: 1rem 2rem;
+  }
+
+  .clientItem {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+  }
+
   .heroContent {
     text-align: center;
   }
@@ -1092,6 +1367,10 @@
   }
 
   .serviceFeatures {
+    padding: 0 2rem 1rem 2rem;
+  }
+
+  .serviceCardCta {
     padding: 0 2rem 2rem 2rem;
   }
 
@@ -1220,7 +1499,25 @@
   }
 
   .serviceFeatures {
+    padding: 0 1.5rem 0.5rem 1.5rem;
+  }
+
+  .serviceCardCta {
     padding: 0 1.5rem 1.5rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .projectViewMore {
+    font-size: 0.75rem;
+  }
+
+  .projectDetails {
+    padding: 0 1.5rem;
+  }
+
+  .projectDetails p {
+    font-size: 0.9rem;
+    padding: 1.5rem 0;
   }
 
   .serviceFeatures li {

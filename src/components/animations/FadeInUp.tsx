@@ -25,7 +25,7 @@ const fadeInUpVariants = {
   }),
 };
 
-export const FadeInUp = ({ children, delay = 0, duration }: FadeInUpProps) => {
+export const FadeInUp = ({ children, delay = 0 }: FadeInUpProps) => {
   return (
     <motion.div
       variants={fadeInUpVariants}
