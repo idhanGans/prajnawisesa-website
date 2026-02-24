@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://prajnawisesa.com/sitemap.xml
+Sitemap: https://prajnawisesa.co/sitemap.xml

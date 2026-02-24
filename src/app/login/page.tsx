@@ -263,7 +263,7 @@ export default function LoginPage() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <span className={styles.labelLine} />
-          <span>Est. 2010</span>
+          <span>Malang &middot; Jawa Timur</span>
           <span className={styles.labelLine} />
         </motion.div>
 
@@ -290,7 +290,7 @@ export default function LoginPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          Strategic Business Consultant
+          Konsultan Bisnis Profesional
         </motion.p>
 
         <motion.p
@@ -299,7 +299,7 @@ export default function LoginPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          Empowering growth through strategic excellence
+          Solusi strategis untuk pertumbuhan bisnis berkelanjutan
         </motion.p>
 
         {!isLoading && (
@@ -335,13 +335,13 @@ export default function LoginPage() {
 
       <div className={styles.footer}>
         <div className={styles.footerLeft}>
-          <span>Jakarta, Indonesia</span>
+          <span>Malang Trade Center, Jawa Timur</span>
         </div>
         <div className={styles.footerCenter}>
-          <span>Strategic Excellence in Business Consulting</span>
+          <span>Perspektif Berbeda untuk Bisnis Berkelanjutan</span>
         </div>
         <div className={styles.footerRight}>
-          <span>contact@prajnawisesa.com</span>
+          <span>contact@prajnawisesa.co</span>
         </div>
       </div>
     </div>
