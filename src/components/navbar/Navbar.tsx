@@ -8,67 +8,78 @@ import styles from "./Navbar.module.css";
 interface NavItem {
   label: string;
   href: string;
+  sectionId: string;
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "#home", sectionId: "home" },
+  { label: "About", href: "#about", sectionId: "about" },
+  { label: "Services", href: "#services", sectionId: "services" },
+  { label: "Projects", href: "#projects", sectionId: "projects" },
+  { label: "Contact Us", href: "#contact", sectionId: "contact" },
 ];
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home");
+  const [activeSection, setActiveSection] = useState("home");
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const overlayRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    // Setup GSAP timeline for menu animation
+    const sectionIds = navItems.map((item) => item.sectionId);
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  useEffect(() => {
     const tl = gsap.timeline({ paused: true });
 
     tl.to(
       overlayRef.current,
-      {
-        opacity: 1,
-        visibility: "visible",
-        duration: 0.3,
-      },
+      { opacity: 1, visibility: "visible", duration: 0.3 },
       0
     )
-      .to(
-        menuRef.current,
-        {
-          x: 0,
-          duration: 0.5,
-        },
-        0
-      )
+      .to(menuRef.current, { x: 0, duration: 0.5, ease: "power3.inOut" }, 0)
       .fromTo(
         menuItemsRef.current,
-        { x: 100, opacity: 0 },
-        { x: 0, opacity: 1, stagger: 0.08, duration: 0.4 },
+        { x: 80, opacity: 0 },
+        { x: 0, opacity: 1, stagger: 0.06, duration: 0.4, ease: "power2.out" },
         0.2
       );
 
     timelineRef.current = tl;
-
-    return () => {
-      tl.kill();
-    };
+    return () => { tl.kill(); };
   }, []);
 
   useEffect(() => {
@@ -84,9 +95,8 @@ export const Navbar = () => {
   }, [isMenuOpen]);
 
   const handleLinkClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault();
-      setActiveItem(label);
       setIsMenuOpen(false);
 
       setTimeout(() => {
@@ -106,6 +116,7 @@ export const Navbar = () => {
   return (
     <>
       <header
+        ref={headerRef}
         className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${
           isMenuOpen ? styles.menuOpen : ""
         }`}
@@ -114,20 +125,20 @@ export const Navbar = () => {
           <Link
             href="#home"
             className={styles.logo}
-            onClick={(e) => handleLinkClick(e, "#home", "Home")}
+            onClick={(e) => handleLinkClick(e, "#home")}
           >
             <span className={styles.logoText}>PRAJNAWISESA</span>
           </Link>
 
-          <nav className={styles.desktopNav}>
+          <nav className={styles.desktopNav} aria-label="Main navigation">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 className={`${styles.navLink} ${
-                  activeItem === item.label ? styles.active : ""
+                  activeSection === item.sectionId ? styles.active : ""
                 }`}
-                onClick={(e) => handleLinkClick(e, item.href, item.label)}
+                onClick={(e) => handleLinkClick(e, item.href)}
               >
                 <span className={styles.navLinkText}>{item.label}</span>
               </Link>
@@ -136,9 +147,7 @@ export const Navbar = () => {
 
           <button
             className={styles.ctaButton}
-            onClick={(e) => {
-              e.preventDefault();
-              setActiveItem("Contact Us");
+            onClick={() => {
               const element = document.querySelector("#contact");
               if (element) {
                 element.scrollIntoView({ behavior: "smooth" });
@@ -154,6 +163,7 @@ export const Navbar = () => {
             }`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             <span className={styles.menuLine}></span>
             <span className={styles.menuLine}></span>
@@ -162,15 +172,14 @@ export const Navbar = () => {
         </div>
       </header>
 
-      {/* Overlay */}
       <div
         ref={overlayRef}
         className={styles.overlay}
         onClick={() => setIsMenuOpen(false)}
+        aria-hidden="true"
       />
 
-      {/* Slide-out Menu */}
-      <div ref={menuRef} className={styles.slideMenu}>
+      <div ref={menuRef} className={styles.slideMenu} role="dialog" aria-label="Navigation menu">
         <div className={styles.slideMenuContent}>
           <div className={styles.menuHeader}>
             <span className={styles.menuTitle}>Navigation</span>
@@ -183,7 +192,7 @@ export const Navbar = () => {
             </button>
           </div>
 
-          <nav className={styles.menuNav}>
+          <nav className={styles.menuNav} aria-label="Mobile navigation">
             {navItems.map((item, index) => (
               <div
                 key={item.label}
@@ -194,8 +203,10 @@ export const Navbar = () => {
               >
                 <Link
                   href={item.href}
-                  className={styles.menuLink}
-                  onClick={(e) => handleLinkClick(e, item.href, item.label)}
+                  className={`${styles.menuLink} ${
+                    activeSection === item.sectionId ? styles.menuLinkActive : ""
+                  }`}
+                  onClick={(e) => handleLinkClick(e, item.href)}
                 >
                   <span className={styles.menuLinkNumber}>0{index + 1}</span>
                   <span className={styles.menuLinkTitle}>{item.label}</span>

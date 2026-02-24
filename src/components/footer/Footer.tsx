@@ -11,6 +11,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
   const brandRef = useRef<HTMLDivElement>(null);
+  const linksRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -27,6 +28,25 @@ export const Footer = () => {
           },
         }
       );
+
+      if (linksRef.current) {
+        const linkItems = linksRef.current.querySelectorAll("a, p");
+        gsap.fromTo(
+          linkItems,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.04,
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
     }, footerRef);
 
     return () => ctx.revert();
@@ -41,9 +61,9 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", href: "https://linkedin.com" },
-    { name: "Twitter", href: "https://twitter.com" },
-    { name: "Instagram", href: "https://instagram.com" },
+    { name: "LinkedIn", href: "https://linkedin.com/company/prajnawisesa" },
+    { name: "Twitter", href: "https://twitter.com/prajnawisesa" },
+    { name: "Instagram", href: "https://instagram.com/prajnawisesa" },
   ];
 
   const handleNavClick = (
@@ -58,10 +78,9 @@ export const Footer = () => {
   };
 
   return (
-    <footer ref={footerRef} className={styles.footer}>
+    <footer ref={footerRef} className={styles.footer} role="contentinfo">
       <div className={styles.container}>
-        {/* Top Section */}
-        <div className={styles.topSection}>
+        <div className={styles.topSection} ref={linksRef}>
           <div className={styles.brandColumn}>
             <h3 className={styles.brandName}>PRAJNAWISESA</h3>
             <p className={styles.brandTagline}>
@@ -107,6 +126,9 @@ export const Footer = () => {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a href="tel:+6281234567890">+62 812 3456 7890</a>
+                </li>
               </ul>
             </div>
 
@@ -120,19 +142,16 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className={styles.divider}></div>
 
-        {/* Bottom Section */}
         <div className={styles.bottomSection}>
           <p className={styles.copyright}>
-            © {currentYear} Prajnawisesa Consultant. All rights reserved.
+            &copy; {currentYear} Prajnawisesa Consultant. All rights reserved.
           </p>
-          <p className={styles.credits}>Designed & Built with Excellence</p>
+          <p className={styles.credits}>Designed &amp; Built with Excellence</p>
         </div>
 
-        {/* Large Brand Name */}
-        <div ref={brandRef} className={styles.largeBrand}>
+        <div ref={brandRef} className={styles.largeBrand} aria-hidden="true">
           PRAJNAWISESA
         </div>
       </div>

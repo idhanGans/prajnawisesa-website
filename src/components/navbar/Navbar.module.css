@@ -288,8 +288,13 @@
   transition: color 0.3s ease;
 }
 
-.menuLink:hover .menuLinkTitle {
+.menuLink:hover .menuLinkTitle,
+.menuLinkActive .menuLinkTitle {
   color: #e8dfca;
+}
+
+.menuLinkActive {
+  padding-left: 1rem;
 }
 
 /* Menu Footer */

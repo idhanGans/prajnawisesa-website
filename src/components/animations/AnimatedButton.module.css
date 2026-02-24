@@ -117,3 +117,27 @@
 .outline:hover .arrow {
   color: #000000;
 }
+
+/* Dark Variant (for use on light backgrounds) */
+.dark {
+  background: transparent;
+  color: #000000;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.dark .hoverEffect {
+  background: #000000;
+}
+
+.dark:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dark:hover .label,
+.dark:hover .arrow {
+  color: #ffffff;
+}
