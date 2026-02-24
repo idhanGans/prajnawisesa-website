@@ -93,10 +93,6 @@ const HeroSection = () => {
     return () => ctx.revert();
   }, []);
 
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="home" ref={heroRef} className={styles.hero}>
       <div className={styles.container}>
@@ -128,12 +124,10 @@ const HeroSection = () => {
               <AnimatedButton
                 label="Konsultasi Gratis"
                 href="#contact"
-                onClick={() => scrollTo("#contact")}
               />
               <AnimatedButton
                 label="Layanan Kami"
                 href="#services"
-                onClick={() => scrollTo("#services")}
                 variant="outline"
               />
             </div>

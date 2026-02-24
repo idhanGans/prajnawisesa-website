@@ -40,10 +40,7 @@ export const AnimatedButton = ({
     relsRef.current = { relX, relY };
 
     gsap.set(span, { top: `${relY}%`, left: `${relX}%`, scale: 0 });
-    gsap.to(span, {
-      scale: 2.5,
-      duration: 0.5,
-    });
+    gsap.to(span, { scale: 2.5, duration: 0.5 });
   }, []);
 
   const handleMouseLeave = useCallback(() => {
@@ -59,7 +56,24 @@ export const AnimatedButton = ({
     });
   }, []);
 
-  const buttonContent = (
+  const isHash = href?.startsWith("#");
+  const isExternal = href?.startsWith("http") || target;
+
+  const handleClick = useCallback(() => {
+    if (onClick) {
+      onClick();
+      return;
+    }
+
+    if (isHash && href) {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [onClick, isHash, href]);
+
+  const buttonElement = (
     <button
       ref={buttonRef}
       type="button"
@@ -67,7 +81,7 @@ export const AnimatedButton = ({
       className={`${styles.button} ${styles[variant]} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <span className={styles.label}>{label}</span>
       <span className={styles.arrow}>→</span>
@@ -75,19 +89,27 @@ export const AnimatedButton = ({
     </button>
   );
 
-  if (href) {
+  if (isHash || !href) {
+    return buttonElement;
+  }
+
+  if (isExternal) {
     return (
-      <Link
+      <a
         href={href}
-        target={target ? "_blank" : undefined}
-        rel={target ? "noopener noreferrer" : undefined}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label={label}
         className={styles.link}
       >
-        {buttonContent}
-      </Link>
+        {buttonElement}
+      </a>
     );
   }
 
-  return buttonContent;
+  return (
+    <Link href={href} aria-label={label} className={styles.link}>
+      {buttonElement}
+    </Link>
+  );
 };
