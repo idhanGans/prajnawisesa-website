@@ -12,11 +12,11 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "#home", sectionId: "home" },
-  { label: "About", href: "#about", sectionId: "about" },
-  { label: "Services", href: "#services", sectionId: "services" },
-  { label: "Projects", href: "#projects", sectionId: "projects" },
-  { label: "Contact Us", href: "#contact", sectionId: "contact" },
+  { label: "Beranda", href: "#home", sectionId: "home" },
+  { label: "Tentang", href: "#about", sectionId: "about" },
+  { label: "Layanan", href: "#services", sectionId: "services" },
+  { label: "Studi Kasus", href: "#projects", sectionId: "projects" },
+  { label: "Kontak", href: "#contact", sectionId: "contact" },
 ];
 
 export const Navbar = () => {
@@ -154,7 +154,7 @@ export const Navbar = () => {
               }
             }}
           >
-            Get Started
+            Konsultasi Gratis
           </button>
 
           <button
@@ -217,22 +217,30 @@ export const Navbar = () => {
 
           <div className={styles.menuFooter}>
             <p className={styles.menuFooterText}>
-              Business Consulting Excellence
+              Konsultan Bisnis Profesional &middot; Malang
             </p>
             <div className={styles.socialLinks}>
               <a
-                href="mailto:contact@prajnawisesa.com"
+                href="mailto:contact@prajnawisesa.co"
                 className={styles.socialLink}
               >
                 Email
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/prajnawisesa-konsultan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
               >
                 LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/prajnawisesa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+              >
+                Instagram
               </a>
             </div>
           </div>

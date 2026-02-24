@@ -53,17 +53,31 @@ export const Footer = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Beranda", href: "#home" },
+    { name: "Tentang Kami", href: "#about" },
+    { name: "Layanan", href: "#services" },
+    { name: "Studi Kasus", href: "#projects" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Kontak", href: "#contact" },
+  ];
+
+  const serviceLinks = [
+    { name: "Business Transformation", href: "#services" },
+    { name: "Financial Services", href: "#services" },
+    { name: "People Development", href: "#services" },
+    { name: "Business Administration", href: "#services" },
+    { name: "Strategic Advisory", href: "#services" },
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", href: "https://linkedin.com/company/prajnawisesa" },
-    { name: "Twitter", href: "https://twitter.com/prajnawisesa" },
-    { name: "Instagram", href: "https://instagram.com/prajnawisesa" },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/prajnawisesa-konsultan",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/prajnawisesa",
+    },
   ];
 
   const handleNavClick = (
@@ -84,20 +98,24 @@ export const Footer = () => {
           <div className={styles.brandColumn}>
             <h3 className={styles.brandName}>PRAJNAWISESA</h3>
             <p className={styles.brandTagline}>
-              Strategic business consulting that drives growth and transforms
-              organizations.
+              Konsultan bisnis profesional yang menghadirkan perspektif berbeda
+              untuk membangun usaha yang berkelanjutan di Malang dan Jawa Timur.
             </p>
             <div className={styles.contactEmail}>
-              <span>Get in touch</span>
-              <a href="mailto:contact@prajnawisesa.com">
-                contact@prajnawisesa.com
+              <span>Hubungi Kami</span>
+              <a href="mailto:contact@prajnawisesa.co">
+                contact@prajnawisesa.co
               </a>
+            </div>
+            <div className={styles.contactEmail}>
+              <span>Telepon</span>
+              <a href="tel:+623414359807">+62 341 435 9807</a>
             </div>
           </div>
 
           <div className={styles.linksColumn}>
             <div className={styles.linkGroup}>
-              <h4 className={styles.linkTitle}>Navigation</h4>
+              <h4 className={styles.linkTitle}>Navigasi</h4>
               <ul className={styles.linkList}>
                 {navLinks.map((link) => (
                   <li key={link.name}>
@@ -113,8 +131,33 @@ export const Footer = () => {
             </div>
 
             <div className={styles.linkGroup}>
-              <h4 className={styles.linkTitle}>Connect</h4>
+              <h4 className={styles.linkTitle}>Layanan</h4>
               <ul className={styles.linkList}>
+                {serviceLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.linkGroup}>
+              <h4 className={styles.linkTitle}>Lokasi & Sosial</h4>
+              <div className={styles.locationInfo}>
+                <p>
+                  Malang Trade Center Blok A-17
+                  <br />
+                  Jl. Raden Panji Suroso
+                  <br />
+                  Malang, Jawa Timur 65125
+                </p>
+              </div>
+              <ul className={styles.linkList} style={{ marginTop: "1rem" }}>
                 {socialLinks.map((link) => (
                   <li key={link.name}>
                     <a
@@ -126,18 +169,7 @@ export const Footer = () => {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <a href="tel:+6281234567890">+62 812 3456 7890</a>
-                </li>
               </ul>
-            </div>
-
-            <div className={styles.linkGroup}>
-              <h4 className={styles.linkTitle}>Location</h4>
-              <div className={styles.locationInfo}>
-                <p>Jakarta, Indonesia</p>
-                <p>Available Worldwide</p>
-              </div>
             </div>
           </div>
         </div>
@@ -146,9 +178,11 @@ export const Footer = () => {
 
         <div className={styles.bottomSection}>
           <p className={styles.copyright}>
-            &copy; {currentYear} Prajnawisesa Consultant. All rights reserved.
+            &copy; {currentYear} Prajnawisesa Konsultan. All rights reserved.
           </p>
-          <p className={styles.credits}>Designed &amp; Built with Excellence</p>
+          <p className={styles.credits}>
+            Konsultan Bisnis Profesional &middot; Malang, Jawa Timur
+          </p>
         </div>
 
         <div ref={brandRef} className={styles.largeBrand} aria-hidden="true">

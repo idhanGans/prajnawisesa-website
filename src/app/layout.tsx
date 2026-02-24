@@ -16,59 +16,71 @@ export const viewport: Viewport = {
   userScalable: true,
 };
 
-const SITE_URL = "https://prajnawisesa.com";
+const SITE_URL = "https://prajnawisesa.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Prajnawisesa Consultant | Strategic Business Consulting in Jakarta",
-    template: "%s | Prajnawisesa Consultant",
+    default:
+      "Prajnawisesa Konsultan | Konsultan Bisnis & Akuntansi Profesional Malang",
+    template: "%s | Prajnawisesa Konsultan",
   },
   description:
-    "Prajnawisesa Consultant delivers strategic business consulting, digital transformation, operations excellence, and financial advisory services in Jakarta, Indonesia. 15+ years of experience, 200+ projects completed.",
+    "Prajnawisesa Konsultan (PWK) adalah konsultan bisnis profesional di Malang yang menyediakan jasa transformasi bisnis, akuntansi, pajak, people development, dan administrasi bisnis berkelanjutan untuk UKM dan korporasi di Jawa Timur.",
   keywords: [
-    "business consulting",
-    "strategy consulting",
-    "digital transformation",
-    "operations excellence",
-    "financial advisory",
-    "management consulting",
-    "Jakarta consulting firm",
-    "Indonesia business consultant",
-    "Prajnawisesa",
-    "growth strategy",
-    "M&A advisory",
-    "supply chain optimization",
+    "konsultan bisnis malang",
+    "jasa akuntansi malang",
+    "konsultan pajak malang",
+    "konsultan pajak surabaya",
+    "jasa pembuatan business plan malang",
+    "kantor konsultan pajak malang",
+    "jasa akuntansi surabaya",
+    "konsultan bisnis surabaya",
+    "audit laporan keuangan surabaya",
+    "change management indonesia",
+    "transformasi bisnis digital",
+    "accounting information system consultant",
+    "corporate secretarial services indonesia",
+    "people development malang",
+    "training karyawan malang",
+    "konsultasi SDM malang",
+    "business transformation indonesia",
+    "Prajnawisesa Konsultan",
   ],
-  authors: [{ name: "Prajnawisesa Consultant", url: SITE_URL }],
-  creator: "Prajnawisesa Consultant",
-  publisher: "Prajnawisesa Consultant",
+  authors: [{ name: "Prajnawisesa Konsultan", url: SITE_URL }],
+  creator: "Prajnawisesa Konsultan",
+  publisher: "Prajnawisesa Konsultan",
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      "id-ID": SITE_URL,
+      "en-US": `${SITE_URL}/en`,
+    },
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "id_ID",
     url: SITE_URL,
-    siteName: "Prajnawisesa Consultant",
-    title: "Prajnawisesa Consultant | Strategic Business Consulting",
+    siteName: "Prajnawisesa Konsultan",
+    title:
+      "Prajnawisesa Konsultan | Solusi Strategis Bisnis Berkelanjutan di Malang",
     description:
-      "Empowering businesses through innovative strategies and sustainable growth solutions. 15+ years, 200+ projects, 98% client satisfaction.",
+      "Konsultan bisnis profesional di Malang: transformasi bisnis, jasa akuntansi & pajak, people development, dan administrasi perusahaan. Didirikan oleh Desiree Muntu, CA, CFE.",
     images: [
       {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Prajnawisesa Consultant - Strategic Business Consulting",
+        alt: "Prajnawisesa Konsultan - Konsultan Bisnis Profesional Malang",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prajnawisesa Consultant | Strategic Business Consulting",
+    title: "Prajnawisesa Konsultan | Konsultan Bisnis Malang",
     description:
-      "Empowering businesses through innovative strategies and sustainable growth solutions.",
+      "Solusi strategis untuk pertumbuhan bisnis berkelanjutan. Transformasi bisnis, akuntansi, pajak, SDM, dan administrasi profesional di Malang & Surabaya.",
     images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
@@ -92,69 +104,132 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: "Prajnawisesa Consultant",
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#business`,
+      name: "Prajnawisesa Konsultan",
+      alternateName: "PWK",
       url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/og-image.png`,
-      },
+      logo: `${SITE_URL}/logo.png`,
+      image: `${SITE_URL}/og-image.png`,
       description:
-        "Strategic business consulting firm delivering innovative strategies and sustainable growth solutions.",
+        "Prajnawisesa Konsultan adalah bisnis konsultan di Malang yang memberikan solusi transformasi bisnis, keuangan, SDM, dan administrasi bisnis berkelanjutan.",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Jakarta",
+        streetAddress:
+          "Kompleks Perkantoran Malang Trade Center Blok A-17, Jalan Raden Panji Suroso",
+        addressLocality: "Malang",
+        addressRegion: "Jawa Timur",
+        postalCode: "65125",
         addressCountry: "ID",
       },
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+62-812-3456-7890",
-        contactType: "customer service",
-        email: "contact@prajnawisesa.com",
-        availableLanguage: ["English", "Indonesian"],
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "-7.9391",
+        longitude: "112.6465",
       },
-      sameAs: [
-        "https://linkedin.com/company/prajnawisesa",
-        "https://twitter.com/prajnawisesa",
-        "https://instagram.com/prajnawisesa",
+      telephone: "+623414359807",
+      email: "contact@prajnawisesa.co",
+      founder: {
+        "@type": "Person",
+        name: "Desiree Muntu",
+        jobTitle: "Managing Partner",
+        description:
+          "Chartered Accountant (CA), Certified Fraud Examiner (CFE), Brevet A, CSA Balanced Scorecard, MM. Former Deloitte professional and international accounting lecturer at Universitas Katolik Widya Karya Malang.",
+        alumniOf: [
+          { "@type": "Organization", name: "Deloitte" },
+          {
+            "@type": "EducationalOrganization",
+            name: "Universitas Katolik Widya Karya Malang",
+          },
+        ],
+      },
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+        ],
+        opens: "08:00",
+        closes: "17:00",
+      },
+      priceRange: "$$$",
+      areaServed: [
+        { "@type": "City", name: "Malang" },
+        { "@type": "City", name: "Surabaya" },
+        { "@type": "State", name: "Jawa Timur" },
+        { "@type": "Country", name: "Indonesia" },
       ],
-      foundingDate: "2010",
-      numberOfEmployees: {
-        "@type": "QuantitativeValue",
-        minValue: 50,
-      },
+      serviceType: [
+        "Business Transformation",
+        "Change Management",
+        "Jasa Akuntansi",
+        "Konsultan Pajak",
+        "People Development",
+        "Organizational Learning",
+        "Business Administration",
+        "Corporate Secretary",
+        "Strategic Advisory",
+      ],
+      sameAs: [
+        "https://www.linkedin.com/company/prajnawisesa-konsultan",
+        "https://www.instagram.com/prajnawisesa",
+      ],
     },
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "Prajnawisesa Consultant",
-      publisher: { "@id": `${SITE_URL}/#organization` },
+      name: "Prajnawisesa Konsultan",
+      publisher: { "@id": `${SITE_URL}/#business` },
+      inLanguage: "id-ID",
     },
     {
-      "@type": "ProfessionalService",
-      "@id": `${SITE_URL}/#service`,
-      name: "Prajnawisesa Consultant",
-      url: SITE_URL,
-      image: `${SITE_URL}/og-image.png`,
-      priceRange: "$$$$",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Jakarta",
-        addressCountry: "ID",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "200",
-        bestRating: "5",
-      },
-      serviceType: [
-        "Strategy Consulting",
-        "Operations Excellence",
-        "Digital Transformation",
-        "Financial Advisory",
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Bagaimana proses awal konsultasi di Prajnawisesa Konsultan?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Kami memulai dengan Advisory sebagai tahap awal untuk mengenali potensi masalah internal maupun eksternal. Kami kemudian memberikan masukan dan arahan strategis yang sesuai dengan kondisi bisnis Anda saat ini.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Apakah layanan pajak PWK mencakup pendampingan pemeriksaan?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ya, kami mendampingi klien dalam tax planning, pelaporan, pengelolaan, hingga pendampingan untuk memberikan pemahaman pajak agar tidak menyalahi aturan yang berlaku.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Apa yang membedakan Business Plan yang dibuat oleh PWK?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Kami melakukan observasi mendalam terhadap bisnis Anda untuk menghasilkan strategi operasional dan keuangan yang tidak hanya indah di kertas, tetapi juga dapat dilaksanakan (executable) dan dievaluasi secara berkala.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Mengapa sistem informasi akuntansi (AIS) sangat penting untuk UKM?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Banyak pelaku usaha mengalami kendala pembukuan karena spesifikasi AIS yang tidak sesuai. Kami membantu mengenali potensi software Anda saat ini atau memberikan saran sistem yang tepat untuk laporan yang impresif.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Berapa lama durasi program People Development?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Durasi program bersifat fleksibel dan disesuaikan dengan hasil analisa kendala SDM perusahaan Anda. Fokus kami adalah menemukan solusi dan merancang perencanaan terorganisir hingga tujuan tercapai.",
+          },
+        },
       ],
     },
   ],
@@ -166,13 +241,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="#0a0f1a" />
         <link rel="canonical" href={SITE_URL} />
+        <meta name="geo.region" content="ID-JI" />
+        <meta name="geo.placename" content="Malang" />
+        <meta name="geo.position" content="-7.9391;112.6465" />
+        <meta name="ICBM" content="-7.9391, 112.6465" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -400,6 +400,68 @@
   margin-bottom: 2rem;
 }
 
+/* Founder Card */
+.founderCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 246, 243, 0.8) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.founderInfo {
+  margin-bottom: 1.25rem;
+}
+
+.founderName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0 0 0.25rem 0;
+}
+
+.founderRole {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2d3748;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+}
+
+.founderBio {
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.credentialBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  background: #1a202c;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.credentialBadge:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
 .statCard {
   background: linear-gradient(
     135deg,
@@ -526,8 +588,16 @@
   font-size: clamp(2.5rem, 5vw, 3.8rem);
   font-weight: 700;
   color: #000000;
-  margin: 0;
+  margin: 0 0 1rem 0;
   letter-spacing: -1px;
+}
+
+.servicesSubtitle {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .servicesGrid {
@@ -866,6 +936,87 @@
 
 .projectsCta {
   text-align: center;
+}
+
+/* FAQ Section */
+.faq {
+  padding: 8rem 4rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f2f5 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faqTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.faqList {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a202c;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.faqQuestion:hover {
+  color: #000000;
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #2d3748;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 24px;
+  text-align: center;
+}
+
+.faqAnswer {
+  overflow: hidden;
+}
+
+.faqAnswer p {
+  padding: 0 0 1.5rem 0;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.faqItemOpen .faqQuestion {
+  color: #000000;
 }
 
 /* Contact Section */
@@ -1326,8 +1477,18 @@
   .about,
   .services,
   .projects,
+  .faq,
   .contact {
     padding: 5rem 1.5rem;
+  }
+
+  .founderCard {
+    padding: 1.5rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.95rem;
+    padding: 1.25rem 0;
   }
 
   .aboutStats {
@@ -1454,12 +1615,30 @@
   .about,
   .services,
   .projects,
+  .faq,
   .contact {
     padding: 4rem 1rem;
   }
 
   .sectionLabel {
     font-size: 0.75rem;
+  }
+
+  .founderName {
+    font-size: 1.1rem;
+  }
+
+  .credentialBadge {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.9rem;
+  }
+
+  .faqAnswer p {
+    font-size: 0.9rem;
   }
 
   .aboutStats {
