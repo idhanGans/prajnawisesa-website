@@ -1,6 +1,6 @@
 .footer {
   background: linear-gradient(180deg, #27272a 0%, #18181b 100%);
-  padding: 6rem 4rem 3rem;
+  padding: 6rem 2rem 3rem;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #3f3f46;
@@ -8,7 +8,9 @@
 
 .container {
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0;
   position: relative;
 }
 
@@ -16,7 +18,7 @@
 .topSection {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 6rem;
+  gap: 3rem;
   margin-bottom: 4rem;
   padding-bottom: 4rem;
   border-bottom: 1px solid #52525b;
