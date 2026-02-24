@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   background: #0a0a0a;
-  padding: 8rem 4rem 6rem;
+  padding: 8rem 2rem 6rem;
   overflow: hidden;
 }
 
@@ -271,7 +271,7 @@
 
 /* About Section */
 .about {
-  padding: 10rem 4rem;
+  padding: 6rem 2rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f2f5 100%);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
@@ -324,8 +324,12 @@
 }
 
 .container {
-  max-width: 1600px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 2rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .sectionLabel {
@@ -354,7 +358,7 @@
 .aboutGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -502,7 +506,7 @@
 
 /* Clients Section */
 .clients {
-  padding: 5rem 4rem;
+  padding: 4rem 2rem;
   background: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -545,7 +549,7 @@
 
 /* Services Section */
 .services {
-  padding: 10rem 4rem;
+  padding: 6rem 2rem;
   background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
@@ -602,10 +606,8 @@
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 2rem;
 }
 
 .serviceCard {
@@ -760,7 +762,7 @@
 
 /* Projects Section */
 .projects {
-  padding: 10rem 4rem;
+  padding: 6rem 2rem;
   background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
@@ -809,12 +811,9 @@
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 2.5rem;
   margin-bottom: 4rem;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .projectCard {
@@ -940,7 +939,7 @@
 
 /* FAQ Section */
 .faq {
-  padding: 8rem 4rem;
+  padding: 6rem 2rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f2f5 100%);
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -1021,7 +1020,7 @@
 
 /* Contact Section */
 .contact {
-  padding: 10rem 4rem;
+  padding: 6rem 2rem;
   background: #f8f6f3 url("/image%20copy.png");
   background-size: cover;
   background-position: center;
@@ -1058,10 +1057,8 @@
 .contactGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  gap: 4rem;
   align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 .contactContent {
@@ -1114,10 +1111,11 @@
 
 .contactItem span:last-child {
   color: #000000;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
+  word-break: break-word;
 }
 
 .contactItem:hover span:last-child {
@@ -1344,40 +1342,10 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 1440px) {
-  .hero .container {
-    max-width: 1300px;
-    gap: 4rem;
-  }
-
-  .heroSlider {
-    width: 450px;
-    height: 550px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero .container {
-    max-width: 1100px;
-    gap: 3rem;
-  }
-
-  .heroSlider {
-    width: 400px;
-    height: 500px;
-  }
-
-  .servicesGrid,
-  .projectsGrid,
-  .contactGrid {
-    max-width: 1100px;
-  }
-}
-
 @media (max-width: 1024px) {
   .hero .container {
     flex-direction: column;
-    gap: 4rem;
+    gap: 3rem;
     text-align: center;
   }
 
@@ -1393,16 +1361,10 @@
     justify-content: center;
   }
 
-  .heroSlider {
-    width: 100%;
-    max-width: 500px;
-    height: 450px;
-  }
-
   .aboutGrid,
   .contactGrid {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
   }
 
   .aboutContent,
@@ -1416,57 +1378,49 @@
 
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .projectsGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 6rem 1.5rem 4rem;
+    padding: 6rem 1rem 4rem;
     min-height: auto;
   }
 
   .hero .container {
-    gap: 3rem;
-  }
-
-  .clients {
-    padding: 3rem 1.5rem;
-  }
-
-  .clientsGrid {
-    gap: 1rem 2rem;
-  }
-
-  .clientItem {
-    font-size: 0.95rem;
-    padding: 0.75rem 1rem;
+    gap: 2rem;
+    padding: 0 0.5rem;
   }
 
   .heroContent {
     text-align: center;
   }
 
-  .heroSlider {
-    max-width: 100%;
-    height: 400px;
+  .heroTitle {
+    font-size: clamp(1.8rem, 6vw, 3rem);
   }
 
-  .slideNews {
-    padding: 2rem;
+  .heroSubtitle {
+    font-size: 1rem;
   }
 
-  .newsTitle {
-    font-size: 1.3rem;
+  .clients {
+    padding: 3rem 1rem;
   }
 
-  .newsDescription {
-    font-size: 0.95rem;
+  .clientsGrid {
+    gap: 0.75rem 1.5rem;
+  }
+
+  .clientItem {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
   }
 
   .scrollIndicator {
@@ -1479,11 +1433,31 @@
   .projects,
   .faq,
   .contact {
-    padding: 5rem 1.5rem;
+    padding: 4rem 1rem;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .aboutGrid {
+    gap: 2.5rem;
+  }
+
+  .aboutTitle {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .aboutDescription {
+    font-size: 1rem;
   }
 
   .founderCard {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .founderBio {
+    font-size: 0.9rem;
   }
 
   .faqQuestion {
@@ -1493,156 +1467,6 @@
 
   .aboutStats {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .statNumber {
-    font-size: 2.5rem;
-  }
-
-  .statLabel {
-    font-size: 0.9rem;
-  }
-
-  .servicesGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .serviceImageWrapper {
-    height: 220px;
-  }
-
-  .serviceNumber {
-    padding: 2rem 2rem 0 2rem;
-  }
-
-  .serviceTitle {
-    font-size: 1.5rem;
-    padding: 0 2rem;
-  }
-
-  .serviceDescription {
-    font-size: 1rem;
-    padding: 0 2rem;
-  }
-
-  .serviceFeatures {
-    padding: 0 2rem 1rem 2rem;
-  }
-
-  .serviceCardCta {
-    padding: 0 2rem 2rem 2rem;
-  }
-
-  .projectsGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .projectImage {
-    height: 240px;
-  }
-
-  .projectInfo {
-    padding: 2rem;
-  }
-
-  .projectTitle {
-    font-size: 1.4rem;
-  }
-
-  .projectDescription {
-    font-size: 0.95rem;
-  }
-
-  .contactGrid {
-    gap: 3rem;
-  }
-
-  .contactImageWrapper {
-    height: 250px;
-  }
-
-  .form {
-    padding: 2.5rem;
-    gap: 1.5rem;
-  }
-
-  .formGroup input,
-  .formGroup textarea {
-    padding: 1rem 1.25rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 5rem 1rem 3rem;
-  }
-
-  .hero .container {
-    gap: 2rem;
-  }
-
-  .heroLabel {
-    font-size: 0.8rem;
-  }
-
-  .labelLine {
-    width: 35px;
-  }
-
-  .heroSlider {
-    height: 350px;
-  }
-
-  .sliderIndicators {
-    gap: 0.4rem;
-  }
-
-  .indicator {
-    width: 30px;
-    height: 3px;
-  }
-
-  .heroButtons {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .about,
-  .services,
-  .projects,
-  .faq,
-  .contact {
-    padding: 4rem 1rem;
-  }
-
-  .sectionLabel {
-    font-size: 0.75rem;
-  }
-
-  .founderName {
-    font-size: 1.1rem;
-  }
-
-  .credentialBadge {
-    font-size: 0.6rem;
-    padding: 0.3rem 0.6rem;
-  }
-
-  .faqQuestion {
-    font-size: 0.9rem;
-  }
-
-  .faqAnswer p {
-    font-size: 0.9rem;
-  }
-
-  .aboutStats {
-    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
@@ -1654,8 +1478,17 @@
     font-size: 2rem;
   }
 
-  .serviceCard {
-    padding: 0;
+  .statLabel {
+    font-size: 0.8rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .servicesTitle {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
 
   .serviceImageWrapper {
@@ -1663,7 +1496,6 @@
   }
 
   .serviceNumber {
-    font-size: 0.75rem;
     padding: 1.5rem 1.5rem 0 1.5rem;
   }
 
@@ -1683,25 +1515,15 @@
 
   .serviceCardCta {
     padding: 0 1.5rem 1.5rem 1.5rem;
-    font-size: 0.8rem;
   }
 
-  .projectViewMore {
-    font-size: 0.75rem;
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .projectDetails {
-    padding: 0 1.5rem;
-  }
-
-  .projectDetails p {
-    font-size: 0.9rem;
-    padding: 1.5rem 0;
-  }
-
-  .serviceFeatures li {
-    font-size: 0.85rem;
-    padding-left: 1.2rem;
+  .projectsTitle {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
 
   .projectImage {
@@ -1712,12 +1534,224 @@
     padding: 1.5rem;
   }
 
+  .projectTitle {
+    font-size: 1.3rem;
+  }
+
+  .projectDescription {
+    font-size: 0.9rem;
+  }
+
+  .faqTitle {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .contactGrid {
+    gap: 2rem;
+  }
+
+  .contactTitle {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .contactDescription {
+    font-size: 1rem;
+  }
+
+  .contactItem {
+    padding: 0.75rem;
+  }
+
+  .contactItem span:last-child {
+    font-size: 0.95rem;
+  }
+
+  .contactImageWrapper {
+    height: 200px;
+  }
+
+  .form {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    font-size: 0.85rem;
+    padding: 0.9rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 5rem 0.75rem 3rem;
+  }
+
+  .hero .container {
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .heroLabel {
+    font-size: 0.65rem;
+    gap: 0.5rem;
+  }
+
+  .labelLine {
+    width: 20px;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+  }
+
+  .heroSubtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .about,
+  .services,
+  .projects,
+  .faq,
+  .contact {
+    padding: 3rem 0.75rem;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .sectionLabel {
+    font-size: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .aboutTitle {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .aboutDescription {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .founderCard {
+    padding: 1rem;
+  }
+
+  .founderName {
+    font-size: 1rem;
+  }
+
+  .founderRole {
+    font-size: 0.75rem;
+  }
+
+  .founderBio {
+    font-size: 0.85rem;
+  }
+
+  .credentialBadge {
+    font-size: 0.6rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.85rem;
+    gap: 1rem;
+  }
+
+  .faqAnswer p {
+    font-size: 0.85rem;
+  }
+
+  .aboutStats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .statCard {
+    padding: 1.25rem 1rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+  }
+
+  .servicesTitle,
+  .projectsTitle,
+  .faqTitle {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .servicesSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .serviceImageWrapper {
+    height: 180px;
+  }
+
+  .serviceNumber {
+    font-size: 0.7rem;
+    padding: 1.25rem 1.25rem 0 1.25rem;
+  }
+
+  .serviceTitle {
+    font-size: 1.15rem;
+    padding: 0 1.25rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.9rem;
+    padding: 0 1.25rem;
+  }
+
+  .serviceFeatures {
+    padding: 0 1.25rem 0.5rem 1.25rem;
+  }
+
+  .serviceFeatures li {
+    font-size: 0.8rem;
+    padding-left: 1.2rem;
+  }
+
+  .serviceCardCta {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .projectImage {
+    height: 180px;
+  }
+
+  .projectInfo {
+    padding: 1.25rem;
+  }
+
   .projectCategory {
     font-size: 0.7rem;
   }
 
   .projectTitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .projectDescription {
@@ -1728,48 +1762,93 @@
     font-size: 0.85rem;
   }
 
-  .contactGrid {
-    gap: 2rem;
-  }
-
-  .contactTitle {
-    margin-bottom: 1.5rem;
-  }
-
-  .contactDescription {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .contactInfo {
-    gap: 1.5rem;
-  }
-
-  .contactLabel {
+  .projectViewMore {
     font-size: 0.7rem;
   }
 
-  .contactItem a,
+  .projectDetails {
+    padding: 0 1.25rem;
+  }
+
+  .projectDetails p {
+    font-size: 0.85rem;
+    padding: 1.25rem 0;
+  }
+
+  .contactTitle {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .contactDescription {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contactInfo {
+    gap: 0.5rem;
+  }
+
+  .contactItem {
+    padding: 0.6rem;
+  }
+
+  .contactLabel {
+    font-size: 0.65rem;
+  }
+
   .contactItem span:last-child {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .contactImageWrapper {
-    height: 200px;
+    height: 180px;
+  }
+
+  .contactForm {
+    border-radius: 6px;
   }
 
   .form {
-    padding: 2rem;
-    gap: 1.2rem;
+    padding: 1.25rem;
+    gap: 1rem;
   }
 
   .formGroup input,
   .formGroup textarea {
-    padding: 0.9rem 1rem;
-    font-size: 0.95rem;
+    padding: 0.8rem 0.9rem;
+    font-size: 0.9rem;
   }
 
   .formGroup textarea {
-    min-height: 120px;
+    min-height: 100px;
+  }
+
+  .submitButton {
+    font-size: 0.8rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .clientsLabel {
+    font-size: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .clientItem {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .whatsappButton {
+    width: 48px;
+    height: 48px;
+    bottom: 1.5rem;
+    left: 1rem;
+  }
+
+  .backToTop {
+    width: 42px;
+    height: 42px;
+    bottom: 1.5rem;
+    right: 1rem;
   }
 }
