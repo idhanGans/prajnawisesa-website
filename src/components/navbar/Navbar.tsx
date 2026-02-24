@@ -134,7 +134,19 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          <button className={styles.ctaButton}>Get Started</button>
+          <button
+            className={styles.ctaButton}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveItem("Contact Us");
+              const element = document.querySelector("#contact");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            Get Started
+          </button>
 
           <button
             className={`${styles.menuButton} ${
