@@ -108,7 +108,7 @@ export default function LoginPage() {
     };
 
     animate();
-    setIsLoading(false);
+    requestAnimationFrame(() => setIsLoading(false));
 
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
