@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 import styles from "./Navbar.module.css";
@@ -52,7 +53,7 @@ export const Navbar = () => {
             setActiveSection(id);
           }
         },
-        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+        { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
       );
 
       observer.observe(el);
@@ -67,19 +68,26 @@ export const Navbar = () => {
 
     tl.to(
       overlayRef.current,
-      { opacity: 1, visibility: "visible", duration: 0.3 },
-      0
+      {
+        opacity: 1,
+        visibility: "visible",
+        pointerEvents: "auto",
+        duration: 0.3,
+      },
+      0,
     )
       .to(menuRef.current, { x: 0, duration: 0.5, ease: "power3.inOut" }, 0)
       .fromTo(
         menuItemsRef.current,
         { x: 80, opacity: 0 },
         { x: 0, opacity: 1, stagger: 0.06, duration: 0.4, ease: "power2.out" },
-        0.2
+        0.2,
       );
 
     timelineRef.current = tl;
-    return () => { tl.kill(); };
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   useEffect(() => {
@@ -106,7 +114,7 @@ export const Navbar = () => {
         }
       }, 300);
     },
-    []
+    [],
   );
 
   const toggleMenu = () => {
@@ -127,7 +135,15 @@ export const Navbar = () => {
             className={styles.logo}
             onClick={(e) => handleLinkClick(e, "#home")}
           >
-            <span className={styles.logoText}>PRAJNAWISESA</span>
+            <Image
+              src="/logo.png"
+              alt="Prajnawisesa Konsultan"
+              width={140}
+              height={40}
+              className={styles.logoImage}
+              priority
+            />
+            <span className={styles.logoText}>Prajnawisesa Konsultan</span>
           </Link>
 
           <nav className={styles.desktopNav} aria-label="Main navigation">
@@ -179,7 +195,12 @@ export const Navbar = () => {
         aria-hidden="true"
       />
 
-      <div ref={menuRef} className={styles.slideMenu} role="dialog" aria-label="Navigation menu">
+      <div
+        ref={menuRef}
+        className={styles.slideMenu}
+        role="dialog"
+        aria-label="Navigation menu"
+      >
         <div className={styles.slideMenuContent}>
           <div className={styles.menuHeader}>
             <span className={styles.menuTitle}>Navigation</span>
@@ -204,7 +225,9 @@ export const Navbar = () => {
                 <Link
                   href={item.href}
                   className={`${styles.menuLink} ${
-                    activeSection === item.sectionId ? styles.menuLinkActive : ""
+                    activeSection === item.sectionId
+                      ? styles.menuLinkActive
+                      : ""
                   }`}
                   onClick={(e) => handleLinkClick(e, item.href)}
                 >

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Footer.module.css";
@@ -96,7 +97,16 @@ export const Footer = () => {
       <div className={styles.container}>
         <div className={styles.topSection} ref={linksRef}>
           <div className={styles.brandColumn}>
-            <h3 className={styles.brandName}>PRAJNAWISESA</h3>
+            <div className={styles.brandLogo}>
+              <Image
+                src="/logo.png"
+                alt="Prajnawisesa Konsultan"
+                width={180}
+                height={52}
+                className={styles.brandLogoImage}
+              />
+              <span className={styles.brandLogoText}>Prajnawisesa Konsultan</span>
+            </div>
             <p className={styles.brandTagline}>
               Konsultan bisnis profesional yang menghadirkan perspektif berbeda
               untuk membangun usaha yang berkelanjutan di Malang dan Jawa Timur.
