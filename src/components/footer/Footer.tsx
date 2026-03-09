@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerRef = useRef<HTMLElement>(null);
+  const LOGO_SRC = "/logo.png";
   const brandRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLDivElement>(null);
 
@@ -99,10 +100,10 @@ export const Footer = () => {
           <div className={styles.brandColumn}>
             <div className={styles.brandLogo}>
               <Image
-                src="/logo.png"
+                src={LOGO_SRC}
                 alt="Prajnawisesa Konsultan"
-                width={180}
-                height={52}
+                width={320}
+                height={66}
                 className={styles.brandLogoImage}
               />
               <span className={styles.brandLogoText}>

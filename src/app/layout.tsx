@@ -17,13 +17,14 @@ export const viewport: Viewport = {
 };
 
 const SITE_URL = "https://prajnawisesa.co";
+const LOGO_PATH = "/logo.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }],
-    shortcut: [{ url: "/logo.png", type: "image/png" }],
-    apple: [{ url: "/logo.png", type: "image/png" }],
+    icon: [{ url: LOGO_PATH, type: "image/png" }],
+    shortcut: [{ url: LOGO_PATH, type: "image/png" }],
+    apple: [{ url: LOGO_PATH, type: "image/png" }],
   },
   title: {
     default:
@@ -114,7 +115,7 @@ const jsonLd = {
       name: "Prajnawisesa Konsultan",
       alternateName: "PWK",
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `${SITE_URL}${LOGO_PATH}`,
       image: `${SITE_URL}/og-image.png`,
       description:
         "Prajnawisesa Konsultan adalah bisnis konsultan di Malang yang memberikan solusi transformasi bisnis, keuangan, SDM, dan administrasi bisnis berkelanjutan.",

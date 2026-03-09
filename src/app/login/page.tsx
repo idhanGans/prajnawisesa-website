@@ -8,6 +8,8 @@ import { gsap } from "gsap";
 import * as THREE from "three";
 import styles from "./page.module.css";
 
+const LOGO_SRC = "/logo.png";
+
 export default function LoginPage() {
   const router = useRouter();
   const [isAnimating, setIsAnimating] = useState(false);
@@ -287,10 +289,10 @@ export default function LoginPage() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <Image
-            src="/logo.png"
+            src={LOGO_SRC}
             alt="Prajnawisesa Konsultan"
-            width={220}
-            height={66}
+            width={300}
+            height={62}
             className={styles.logoImage}
             priority
           />

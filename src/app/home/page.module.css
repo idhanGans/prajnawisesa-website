@@ -272,7 +272,18 @@
 /* About Section */
 .about {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f2f5 100%);
+  background:
+    radial-gradient(
+      1200px 500px at 10% -10%,
+      rgba(15, 23, 42, 0.05) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 420px at 95% 110%,
+      rgba(184, 153, 95, 0.06) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f7fbff 0%, #edf4fb 100%);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
   box-shadow:
@@ -287,33 +298,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    /* Geometric circles */
-    radial-gradient(
-      circle at 20% 30%,
-      rgba(66, 153, 225, 0.1) 0%,
-      transparent 50%
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 23px,
+      rgba(15, 23, 42, 0.03) 24px
     ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(159, 122, 234, 0.08) 0%,
-      transparent 50%
-    ),
-    /* Diagonal lines */
-    repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 50px,
-        rgba(0, 0, 0, 0.02) 50px,
-        rgba(0, 0, 0, 0.02) 51px
-      ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 50px,
-      rgba(0, 0, 0, 0.02) 50px,
-      rgba(0, 0, 0, 0.02) 51px
+    linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 23px,
+      rgba(15, 23, 42, 0.03) 24px
     );
+  background-size: 24px 24px;
   pointer-events: none;
   z-index: 1;
 }
@@ -406,7 +404,11 @@
 
 /* Founder Card */
 .founderCard {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 246, 243, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 246, 243, 0.8) 100%
+  );
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 2rem;
@@ -509,7 +511,7 @@
 /* Clients Section */
 .clients {
   padding: 4rem 2rem;
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -552,11 +554,18 @@
 /* Services Section */
 .services {
   padding: 6rem 2rem;
-  background: #f8f6f3 url("/image%20copy.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background:
+    radial-gradient(
+      900px 360px at 0% 0%,
+      rgba(122, 82, 24, 0.08) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 360px at 100% 100%,
+      rgba(184, 153, 95, 0.12) 0%,
+      transparent 65%
+    ),
+    linear-gradient(180deg, #fcf8f2 0%, #f4ecdf 100%);
   border-top: 1px solid #e4e4e7;
   position: relative;
   box-shadow:
@@ -571,11 +580,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.78) 0%,
-    rgba(248, 246, 243, 0.75) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.64) 0%,
+      rgba(252, 246, 237, 0.72) 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 39px,
+      rgba(15, 23, 42, 0.025) 40px
+    );
+  background-size:
+    auto,
+    40px 40px;
   pointer-events: none;
   z-index: 1;
 }
@@ -768,11 +787,18 @@
 /* Projects Section */
 .projects {
   padding: 6rem 2rem;
-  background: #f8f6f3 url("/image%20copy.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background:
+    radial-gradient(
+      900px 380px at 90% 0%,
+      rgba(20, 46, 71, 0.09) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 380px at 15% 100%,
+      rgba(75, 126, 169, 0.08) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, #eff4fa 0%, #e5edf6 100%);
   border-top: 1px solid #e4e4e7;
   position: relative;
   box-shadow:
@@ -787,11 +813,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.78) 0%,
-    rgba(248, 246, 243, 0.75) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.62) 0%,
+      rgba(232, 239, 248, 0.72) 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 39px,
+      rgba(15, 23, 42, 0.025) 40px
+    );
+  background-size:
+    auto,
+    40px 40px;
   pointer-events: none;
   z-index: 1;
 }
@@ -953,7 +989,7 @@
 /* FAQ Section */
 .faq {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f2f5 100%);
+  background: linear-gradient(180deg, #fdfdfd 0%, #f4f7fa 100%);
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -1034,11 +1070,18 @@
 /* Contact Section */
 .contact {
   padding: 6rem 2rem;
-  background: #f8f6f3 url("/image%20copy.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background:
+    radial-gradient(
+      1000px 400px at 0% 100%,
+      rgba(15, 46, 72, 0.11) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      1000px 400px at 100% 0%,
+      rgba(31, 94, 127, 0.1) 0%,
+      transparent 62%
+    ),
+    linear-gradient(180deg, #e9f3fb 0%, #dce8f3 100%);
   border-top: 1px solid #e4e4e7;
   position: relative;
   box-shadow:
@@ -1053,11 +1096,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.78) 0%,
-    rgba(248, 246, 243, 0.75) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(229, 239, 248, 0.7) 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 39px,
+      rgba(15, 23, 42, 0.025) 40px
+    );
+  background-size:
+    auto,
+    40px 40px;
   pointer-events: none;
   z-index: 1;
 }

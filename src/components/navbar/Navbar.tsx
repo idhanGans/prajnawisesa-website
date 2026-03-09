@@ -20,6 +20,8 @@ const navItems: NavItem[] = [
   { label: "Kontak", href: "#contact", sectionId: "contact" },
 ];
 
+const LOGO_SRC = "/logo.png";
+
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -136,10 +138,10 @@ export const Navbar = () => {
             onClick={(e) => handleLinkClick(e, "#home")}
           >
             <Image
-              src="/logo.png"
+              src={LOGO_SRC}
               alt="Prajnawisesa Konsultan"
-              width={140}
-              height={40}
+              width={240}
+              height={49}
               className={styles.logoImage}
               priority
             />
