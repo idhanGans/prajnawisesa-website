@@ -3,12 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { gsap } from "gsap";
 import * as THREE from "three";
 import styles from "./page.module.css";
-
-const LOGO_SRC = "/logo.png";
 
 export default function LoginPage() {
   const router = useRouter();
