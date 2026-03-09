@@ -20,6 +20,11 @@ const SITE_URL = "https://prajnawisesa.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    shortcut: [{ url: "/logo.png", type: "image/png" }],
+    apple: [{ url: "/logo.png", type: "image/png" }],
+  },
   title: {
     default:
       "Prajnawisesa Konsultan | Konsultan Bisnis & Akuntansi Profesional Malang",
@@ -145,13 +150,7 @@ const jsonLd = {
       },
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-        ],
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
         closes: "17:00",
       },

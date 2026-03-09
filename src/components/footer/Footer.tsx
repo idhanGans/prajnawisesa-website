@@ -27,7 +27,7 @@ export const Footer = () => {
             end: "bottom bottom",
             scrub: true,
           },
-        }
+        },
       );
 
       if (linksRef.current) {
@@ -45,7 +45,7 @@ export const Footer = () => {
               trigger: footerRef.current,
               start: "top 85%",
             },
-          }
+          },
         );
       }
     }, footerRef);
@@ -83,7 +83,7 @@ export const Footer = () => {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     const element = document.querySelector(href);
@@ -105,7 +105,9 @@ export const Footer = () => {
                 height={52}
                 className={styles.brandLogoImage}
               />
-              <span className={styles.brandLogoText}>Prajnawisesa Konsultan</span>
+              <span className={styles.brandLogoText}>
+                Prajnawisesa Konsultan
+              </span>
             </div>
             <p className={styles.brandTagline}>
               Konsultan bisnis profesional yang menghadirkan perspektif berbeda

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { gsap } from "gsap";
 import * as THREE from "three";
 import styles from "./page.module.css";
@@ -29,7 +30,7 @@ export default function LoginPage() {
             duration: 0.8,
             delay: 0.3,
             ease: "power3.out",
-          }
+          },
         );
       }
     }, containerRef);
@@ -46,7 +47,7 @@ export default function LoginPage() {
       60,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      1000,
     );
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
@@ -68,15 +69,15 @@ export default function LoginPage() {
         new THREE.Vector3(
           (Math.random() - 0.5) * 0.008,
           (Math.random() - 0.5) * 0.008,
-          (Math.random() - 0.5) * 0.004
-        )
+          (Math.random() - 0.5) * 0.004,
+        ),
       );
     }
 
     const particleGeometry = new THREE.BufferGeometry();
     particleGeometry.setAttribute(
       "position",
-      new THREE.BufferAttribute(positions, 3)
+      new THREE.BufferAttribute(positions, 3),
     );
 
     const particleMaterial = new THREE.PointsMaterial({
@@ -130,7 +131,7 @@ export default function LoginPage() {
         transparent: true,
         opacity: 0.04,
         side: THREE.DoubleSide,
-      })
+      }),
     );
     ring2.rotation.x = Math.PI * 0.35;
     ring2.rotation.z = Math.PI * 0.2;
@@ -149,8 +150,7 @@ export default function LoginPage() {
       frameId = requestAnimationFrame(animate);
       time += 0.003;
 
-      const pos = particleGeometry.attributes.position
-        .array as Float32Array;
+      const pos = particleGeometry.attributes.position.array as Float32Array;
       for (let i = 0; i < particleCount; i++) {
         pos[i * 3] += velocities[i].x;
         pos[i * 3 + 1] += velocities[i].y;
@@ -159,8 +159,7 @@ export default function LoginPage() {
         const halfSpread = spread / 2;
         if (Math.abs(pos[i * 3]) > halfSpread) velocities[i].x *= -1;
         if (Math.abs(pos[i * 3 + 1]) > halfSpread) velocities[i].y *= -1;
-        if (Math.abs(pos[i * 3 + 2]) > halfSpread * 0.5)
-          velocities[i].z *= -1;
+        if (Math.abs(pos[i * 3 + 2]) > halfSpread * 0.5) velocities[i].z *= -1;
       }
       particleGeometry.attributes.position.needsUpdate = true;
 
@@ -173,15 +172,19 @@ export default function LoginPage() {
           const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
           if (dist < connectionDistance) {
             linePositions.push(
-              pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2],
-              pos[j * 3], pos[j * 3 + 1], pos[j * 3 + 2]
+              pos[i * 3],
+              pos[i * 3 + 1],
+              pos[i * 3 + 2],
+              pos[j * 3],
+              pos[j * 3 + 1],
+              pos[j * 3 + 2],
             );
           }
         }
       }
       linesGeometry.setAttribute(
         "position",
-        new THREE.Float32BufferAttribute(linePositions, 3)
+        new THREE.Float32BufferAttribute(linePositions, 3),
       );
 
       sphere.rotation.y = time * 0.3;
@@ -276,6 +279,22 @@ export default function LoginPage() {
         >
           {splitText("PRAJNAWISESA")}
         </motion.h1>
+
+        <motion.div
+          className={styles.logoWrap}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Prajnawisesa Konsultan"
+            width={220}
+            height={66}
+            className={styles.logoImage}
+            priority
+          />
+        </motion.div>
 
         <motion.div
           className={styles.divider}
