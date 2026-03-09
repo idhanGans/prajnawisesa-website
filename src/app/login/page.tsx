@@ -343,7 +343,7 @@ export default function LoginPage() {
           <span>Perspektif Berbeda untuk Bisnis Berkelanjutan</span>
         </div>
         <div className={styles.footerRight}>
-          <span>contact@prajnawisesa.co</span>
+          <span>info@prajnawisesa.com</span>
         </div>
       </div>
     </div>

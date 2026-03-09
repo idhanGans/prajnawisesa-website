@@ -119,6 +119,7 @@ const jsonLd = {
       image: `${SITE_URL}/og-image.png`,
       description:
         "Prajnawisesa Konsultan adalah bisnis konsultan di Malang yang memberikan solusi transformasi bisnis, keuangan, SDM, dan administrasi bisnis berkelanjutan.",
+      foundingDate: "2011",
       address: {
         "@type": "PostalAddress",
         streetAddress:
@@ -133,8 +134,8 @@ const jsonLd = {
         latitude: "-7.9391",
         longitude: "112.6465",
       },
-      telephone: "+623414359807",
-      email: "contact@prajnawisesa.co",
+      telephone: "+6285161262561",
+      email: "info@prajnawisesa.com",
       founder: {
         "@type": "Person",
         name: "Desiree Muntu",
@@ -174,8 +175,8 @@ const jsonLd = {
         "Strategic Advisory",
       ],
       sameAs: [
-        "https://www.linkedin.com/company/prajnawisesa-konsultan",
-        "https://www.instagram.com/prajnawisesa",
+        "https://www.instagram.com/prajnawisesa_consultant",
+        "https://facebook.com/prajnawisesa",
       ],
     },
     {

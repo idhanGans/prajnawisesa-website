@@ -246,21 +246,21 @@ export const Navbar = () => {
             </p>
             <div className={styles.socialLinks}>
               <a
-                href="mailto:contact@prajnawisesa.co"
+                href="mailto:info@prajnawisesa.com"
                 className={styles.socialLink}
               >
                 Email
               </a>
               <a
-                href="https://www.linkedin.com/company/prajnawisesa-konsultan"
+                href="https://facebook.com/prajnawisesa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
               >
-                LinkedIn
+                Facebook
               </a>
               <a
-                href="https://www.instagram.com/prajnawisesa"
+                href="https://www.instagram.com/prajnawisesa_consultant"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}

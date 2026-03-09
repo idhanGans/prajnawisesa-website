@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 const useCountUp = (
   end: number,
   duration: number = 2,
-  triggerRef: React.RefObject<HTMLElement | null>
+  triggerRef: React.RefObject<HTMLElement | null>,
 ) => {
   const [count, setCount] = useState(0);
   const hasAnimated = useRef(false);
@@ -41,7 +41,7 @@ const useCountUp = (
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     observer.observe(triggerRef.current);
     return () => observer.disconnect();
@@ -121,10 +121,7 @@ const HeroSection = () => {
 
           <FadeInUp delay={0.8}>
             <div className={styles.heroButtons}>
-              <AnimatedButton
-                label="Konsultasi Gratis"
-                href="#contact"
-              />
+              <AnimatedButton label="Konsultasi Gratis" href="#contact" />
               <AnimatedButton
                 label="Layanan Kami"
                 href="#services"
@@ -159,17 +156,17 @@ const AboutSection = () => {
           opacity: 1,
           stagger: 0.2,
           scrollTrigger: { trigger: sectionRef.current, start: "top 70%" },
-        }
+        },
       );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   const stats = [
-    { number: 2, suffix: ".63B", label: "Pasar Konsultan Indonesia (USD)" },
-    { number: 9, suffix: ".4%", label: "CAGR Segmen UKM" },
+    { number: 2011, suffix: "", label: "Tahun Berdiri" },
+    { number: 60, suffix: "+", label: "Klien Ditangani" },
     { number: 6, suffix: "+", label: "Pilar Layanan" },
-    { number: 98, suffix: "%", label: "Kepuasan Klien" },
+    { number: 15, suffix: "+", label: "Tahun Pengalaman" },
   ];
 
   const credentials = [
@@ -211,6 +208,8 @@ const AboutSection = () => {
                 Menghadirkan solusi berbasis data dan pendekatan personal untuk
                 menyelesaikan masalah fundamental dalam operasional bisnis Anda
                 — dari transformasi organisasi hingga kepatuhan finansial.
+                Berdiri sejak tahun 2011, kami telah menangani sekitar 60 klien
+                dari berbagai segmen bisnis.
               </p>
             </FadeInUp>
 
@@ -317,10 +316,15 @@ const ServicesSection = () => {
       title: "Business Transformation",
       description:
         "Pendampingan perubahan fundamental secara holistik — proses, SDM, sistem, teknologi, dan struktur organisasi — untuk menjamin keberlanjutan bisnis di era dinamis.",
-      features: ["Change Management", "Business Communication", "Performance Management"],
+      features: [
+        "Change Management",
+        "Business Communication",
+        "Performance Management",
+      ],
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
-      imageAlt: "Tim bisnis merencanakan strategi transformasi di ruang meeting",
+      imageAlt:
+        "Tim bisnis merencanakan strategi transformasi di ruang meeting",
     },
     {
       number: "02",
@@ -330,7 +334,8 @@ const ServicesSection = () => {
       features: ["Finance & Projection", "Accounting", "Tax Advisory", "AIS"],
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
-      imageAlt: "Analisa keuangan profesional dengan grafik dan laporan di meja kerja",
+      imageAlt:
+        "Analisa keuangan profesional dengan grafik dan laporan di meja kerja",
     },
     {
       number: "03",
@@ -357,7 +362,12 @@ const ServicesSection = () => {
       title: "Business Administration",
       description:
         "Menerjemahkan visi menjadi rencana aksi yang terukur. Perancangan SOP, pengelolaan administrasi, dan sistem informasi manajemen profesional.",
-      features: ["Business Plan", "Corporate Secretary", "MIS & SOP", "Reporting"],
+      features: [
+        "Business Plan",
+        "Corporate Secretary",
+        "MIS & SOP",
+        "Reporting",
+      ],
       image:
         "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop",
       imageAlt: "Pengelolaan administrasi bisnis dan perencanaan strategis",
@@ -469,8 +479,7 @@ const ProjectsSection = () => {
     {
       title: "Optimasi Manufaktur Jawa Timur",
       category: "Financial Services",
-      description:
-        "Optimasi keuangan dan rantai pasok di 12 lokasi manufaktur",
+      description: "Optimasi keuangan dan rantai pasok di 12 lokasi manufaktur",
       result: "-30% Biaya Operasional",
       details:
         "Tim kami melakukan analisa komprehensif terhadap proses manufaktur di 12 lokasi, mengidentifikasi bottleneck dan mengimplementasikan metodologi lean. Kami mengoptimasi logistik, mengurangi waste 40%, dan membangun dashboard monitoring real-time untuk seluruh lini produksi.",
@@ -481,8 +490,7 @@ const ProjectsSection = () => {
     {
       title: "Scale-up Startup Fintech",
       category: "Strategic Advisory",
-      description:
-        "Perencanaan strategis dan pendampingan pendanaan Series B",
+      description: "Perencanaan strategis dan pendampingan pendanaan Series B",
       result: "Rp 750M Pendanaan Tercapai",
       details:
         "Kami membantu startup fintech yang berkembang pesat mempersiapkan pendanaan Series B dengan menyempurnakan model bisnis, membangun proyeksi keuangan komprehensif, dan menyusun narasi investor yang meyakinkan. Bimbingan strategis kami menghasilkan multiple term sheet dan pendanaan sukses.",
@@ -517,14 +525,12 @@ const ProjectsSection = () => {
                 tabIndex={0}
                 aria-label={`Lihat detail ${project.title}`}
                 onClick={() =>
-                  setSelectedProject(
-                    selectedProject === index ? null : index
-                  )
+                  setSelectedProject(selectedProject === index ? null : index)
                 }
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ")
                     setSelectedProject(
-                      selectedProject === index ? null : index
+                      selectedProject === index ? null : index,
                     );
                 }}
               >
@@ -556,9 +562,7 @@ const ProjectsSection = () => {
                       className={styles.projectArrow}
                       style={{
                         transform:
-                          selectedProject === index
-                            ? "rotate(90deg)"
-                            : "none",
+                          selectedProject === index ? "rotate(90deg)" : "none",
                       }}
                     >
                       →
@@ -658,8 +662,7 @@ const FaqSection = () => {
                   <span
                     className={styles.faqIcon}
                     style={{
-                      transform:
-                        openIndex === index ? "rotate(45deg)" : "none",
+                      transform: openIndex === index ? "rotate(45deg)" : "none",
                     }}
                   >
                     +
@@ -700,7 +703,7 @@ const ContactSection = () => {
   >("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -710,12 +713,29 @@ const ContactSection = () => {
       e.preventDefault();
       if (submitStatus === "submitting") return;
       setSubmitStatus("submitting");
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitStatus("success");
-      setFormState({ name: "", email: "", company: "", message: "" });
-      setTimeout(() => setSubmitStatus("idle"), 5000);
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formState),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to send contact form");
+        }
+
+        setSubmitStatus("success");
+        setFormState({ name: "", email: "", company: "", message: "" });
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      } catch {
+        setSubmitStatus("error");
+        setTimeout(() => setSubmitStatus("idle"), 5000);
+      }
     },
-    [submitStatus]
+    [formState, submitStatus],
   );
 
   return (
@@ -745,15 +765,15 @@ const ContactSection = () => {
             <FadeInUp delay={0.5}>
               <div className={styles.contactInfo}>
                 <a
-                  href="mailto:contact@prajnawisesa.co"
+                  href="mailto:info@prajnawisesa.com"
                   className={styles.contactItem}
                 >
                   <span className={styles.contactLabel}>Email</span>
-                  <span>contact@prajnawisesa.co</span>
+                  <span>info@prajnawisesa.com</span>
                 </a>
-                <a href="tel:+623414359807" className={styles.contactItem}>
-                  <span className={styles.contactLabel}>Telepon</span>
-                  <span>+62 341 435 9807</span>
+                <a href="tel:+6285161262561" className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Kontak Admin</span>
+                  <span>+62 851 6126 2561</span>
                 </a>
                 <a
                   href="https://maps.google.com/?q=Malang+Trade+Center+Blok+A-17"
@@ -857,22 +877,30 @@ const ContactSection = () => {
                     </motion.div>
                   ) : (
                     <motion.div key="button" exit={{ opacity: 0 }}>
-                      <button
-                        type="submit"
-                        className={styles.submitButton}
-                        disabled={submitStatus === "submitting"}
-                      >
-                        <span>
-                          {submitStatus === "submitting"
-                            ? "Mengirim..."
-                            : "Kirim Pesan"}
-                        </span>
-                        {submitStatus === "submitting" ? (
-                          <span className={styles.spinner} />
-                        ) : (
-                          <span className={styles.submitArrow}>→</span>
+                      <>
+                        <button
+                          type="submit"
+                          className={styles.submitButton}
+                          disabled={submitStatus === "submitting"}
+                        >
+                          <span>
+                            {submitStatus === "submitting"
+                              ? "Mengirim..."
+                              : "Kirim Pesan"}
+                          </span>
+                          {submitStatus === "submitting" ? (
+                            <span className={styles.spinner} />
+                          ) : (
+                            <span className={styles.submitArrow}>→</span>
+                          )}
+                        </button>
+                        {submitStatus === "error" && (
+                          <p className={styles.formError}>
+                            Gagal mengirim pesan. Silakan coba lagi atau hubungi
+                            info@prajnawisesa.com.
+                          </p>
                         )}
-                      </button>
+                      </>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -894,7 +922,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const whatsappUrl =
-    "https://wa.me/623414359807?text=Halo%20Prajnawisesa%20Konsultan%2C%20saya%20ingin%20konsultasi%20mengenai%20bisnis%20saya.";
+    "https://wa.me/6285161262561?text=Halo%20Prajnawisesa%20Konsultan%2C%20saya%20ingin%20konsultasi%20mengenai%20bisnis%20saya.";
 
   return (
     <AnimatePresence>

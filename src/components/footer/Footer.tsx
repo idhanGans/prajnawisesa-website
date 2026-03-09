@@ -73,12 +73,12 @@ export const Footer = () => {
 
   const socialLinks = [
     {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/prajnawisesa-konsultan",
+      name: "Instagram",
+      href: "https://www.instagram.com/prajnawisesa_consultant",
     },
     {
-      name: "Instagram",
-      href: "https://www.instagram.com/prajnawisesa",
+      name: "Facebook",
+      href: "https://facebook.com/prajnawisesa",
     },
   ];
 
@@ -116,13 +116,13 @@ export const Footer = () => {
             </p>
             <div className={styles.contactEmail}>
               <span>Hubungi Kami</span>
-              <a href="mailto:contact@prajnawisesa.co">
-                contact@prajnawisesa.co
+              <a href="mailto:info@prajnawisesa.com">
+                info@prajnawisesa.com
               </a>
             </div>
             <div className={styles.contactEmail}>
               <span>Telepon</span>
-              <a href="tel:+623414359807">+62 341 435 9807</a>
+              <a href="tel:+6285161262561">+62 851 6126 2561</a>
             </div>
           </div>
 

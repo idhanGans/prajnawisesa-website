@@ -1335,6 +1335,13 @@
   color: #059669;
 }
 
+.formError {
+  margin-top: 0.9rem;
+  color: #b91c1c;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .whatsappButton {
   position: fixed;
   bottom: 2rem;
