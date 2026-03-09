@@ -283,22 +283,6 @@ export default function LoginPage() {
         </motion.h1>
 
         <motion.div
-          className={styles.logoWrap}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <Image
-            src={LOGO_SRC}
-            alt="Prajnawisesa Konsultan"
-            width={300}
-            height={62}
-            className={styles.logoImage}
-            priority
-          />
-        </motion.div>
-
-        <motion.div
           className={styles.divider}
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}

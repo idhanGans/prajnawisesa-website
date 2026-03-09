@@ -109,18 +109,6 @@
     sans-serif;
 }
 
-.logoWrap {
-  margin-top: 0.9rem;
-  margin-bottom: 0.6rem;
-}
-
-.logoImage {
-  width: clamp(170px, 26vw, 220px);
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
-}
-
 /* Divider */
 .divider {
   width: 60px;
