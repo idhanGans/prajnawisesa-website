@@ -246,6 +246,9 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <link rel="icon" type="image/png" href={LOGO_PATH} />
+        <link rel="shortcut icon" href={LOGO_PATH} />
+        <link rel="apple-touch-icon" href={LOGO_PATH} />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0a0f1a" />
         <link rel="canonical" href={SITE_URL} />
