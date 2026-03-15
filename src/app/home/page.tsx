@@ -248,8 +248,8 @@ const AboutSection = () => {
           <div>
             <div className={styles.aboutImageWrapper}>
               <Image
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
-                alt="Tim profesional Prajnawisesa Konsultan berkolaborasi di kantor Malang Trade Center"
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=500&fit=crop"
+                alt="Tim bisnis multikultural berdiskusi strategi di ruang rapat"
                 width={600}
                 height={500}
                 className={styles.aboutImage}
@@ -321,9 +321,9 @@ const ServicesSection = () => {
         "Performance Management",
       ],
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
       imageAlt:
-        "Tim bisnis merencanakan strategi transformasi di ruang meeting",
+        "Tim profesional beragam sedang menyusun strategi transformasi bisnis",
     },
     {
       number: "02",
@@ -332,9 +332,9 @@ const ServicesSection = () => {
         "Optimalkan likuiditas dan proyeksi finansial dengan analisa arus kas yang akurat. Layanan akuntansi profesional sebagai fondasi pengambilan keputusan bisnis.",
       features: ["Finance & Projection", "Accounting", "Tax Advisory", "AIS"],
       image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop",
       imageAlt:
-        "Analisa keuangan profesional dengan grafik dan laporan di meja kerja",
+        "Konsultan keuangan meninjau laporan dan proyeksi bersama klien",
     },
     {
       number: "03",
@@ -343,8 +343,8 @@ const ServicesSection = () => {
         "Konsultasi SDM, training, dan coaching profesional untuk meningkatkan loyalitas dan kinerja karyawan demi mencapai tujuan perusahaan.",
       features: ["Assessment", "Training & Coaching", "Talent Management"],
       image:
-        "https://images.unsplash.com/photo-1531746790731-6c087fecd65b?w=400&h=300&fit=crop",
-      imageAlt: "Sesi pelatihan dan pengembangan karyawan profesional",
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
+      imageAlt: "Sesi coaching tim lintas fungsi untuk pengembangan karyawan",
     },
     {
       number: "04",
@@ -353,8 +353,8 @@ const ServicesSection = () => {
         "Proses menciptakan, mempertahankan, dan mentransfer pengetahuan dalam organisasi untuk menghindari kesalahan berulang dan membangun budaya belajar.",
       features: ["Academy Planning", "Research", "Knowledge Transfer"],
       image:
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
-      imageAlt: "Sistem pembelajaran organisasi dan manajemen pengetahuan",
+        "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=300&fit=crop",
+      imageAlt: "Sesi knowledge sharing dalam tim profesional modern",
     },
     {
       number: "05",
@@ -368,8 +368,9 @@ const ServicesSection = () => {
         "Reporting",
       ],
       image:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop",
-      imageAlt: "Pengelolaan administrasi bisnis dan perencanaan strategis",
+        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop",
+      imageAlt:
+        "Tim administrasi bisnis menyiapkan rencana kerja dan dokumentasi",
     },
     {
       number: "06",
@@ -378,8 +379,8 @@ const ServicesSection = () => {
         "Advisory sebagai tahap awal untuk meminimalkan dampak masalah internal dan eksternal. Arahan dan masukan strategis yang applicable untuk kondisi bisnis Anda.",
       features: ["Risk Assessment", "Strategic Direction", "Partnership"],
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
-      imageAlt: "Konsultasi strategis dengan managing partner di kantor PWK",
+        "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=300&fit=crop",
+      imageAlt: "Sesi konsultasi strategis antara advisor dan pemilik bisnis",
     },
   ];
 
@@ -472,8 +473,9 @@ const ProjectsSection = () => {
       details:
         "Kami bermitra dengan perusahaan retail terkemuka untuk merombak infrastruktur digital mereka, mengimplementasikan strategi omnichannel yang menyatukan pengalaman online dan offline. Proyek ini berlangsung selama 18 bulan, melibatkan restrukturisasi operasional rantai pasok, penerapan CRM baru, dan pelatihan 5.000+ karyawan.",
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-      imageAlt: "Transformasi digital gerai retail modern",
+        "https://images.unsplash.com/photo-1552664688-cf412ec27db2?w=600&h=400&fit=crop",
+      imageAlt:
+        "Tim lintas divisi mempresentasikan roadmap transformasi retail",
     },
     {
       title: "Optimasi Manufaktur Jawa Timur",
@@ -483,8 +485,9 @@ const ProjectsSection = () => {
       details:
         "Tim kami melakukan analisa komprehensif terhadap proses manufaktur di 12 lokasi, mengidentifikasi bottleneck dan mengimplementasikan metodologi lean. Kami mengoptimasi logistik, mengurangi waste 40%, dan membangun dashboard monitoring real-time untuk seluruh lini produksi.",
       image:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
-      imageAlt: "Fasilitas manufaktur yang telah dioptimasi operasionalnya",
+        "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=600&h=400&fit=crop",
+      imageAlt:
+        "Profesional operasional meninjau optimasi proses di area produksi",
     },
     {
       title: "Scale-up Startup Fintech",
@@ -494,8 +497,8 @@ const ProjectsSection = () => {
       details:
         "Kami membantu startup fintech yang berkembang pesat mempersiapkan pendanaan Series B dengan menyempurnakan model bisnis, membangun proyeksi keuangan komprehensif, dan menyusun narasi investor yang meyakinkan. Bimbingan strategis kami menghasilkan multiple term sheet dan pendanaan sukses.",
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-      imageAlt: "Tim startup merayakan keberhasilan pendanaan",
+        "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop",
+      imageAlt: "Pendiri startup dan tim investor berdiskusi pasca pendanaan",
     },
   ];
 
@@ -794,8 +797,8 @@ const ContactSection = () => {
             <FadeInUp delay={0.2}>
               <div className={styles.contactImageWrapper}>
                 <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop"
-                  alt="Konsultasi bisnis profesional di kantor Prajnawisesa Konsultan Malang"
+                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&h=500&fit=crop"
+                  alt="Sesi konsultasi bisnis profesional antara advisor dan klien"
                   width={500}
                   height={500}
                   className={styles.contactImage}
