@@ -17,14 +17,19 @@ export const viewport: Viewport = {
 };
 
 const SITE_URL = "https://prajnawisesa.co";
-const LOGO_PATH = "/logo.png";
+const LOGO_PATH = "/icon.jpeg";
+const FAVICON_PATH = "/favicon.png";
+const APPLE_ICON_PATH = "/icon-192.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: {
-    icon: [{ url: LOGO_PATH, type: "image/png" }],
-    shortcut: [{ url: LOGO_PATH, type: "image/png" }],
-    apple: [{ url: LOGO_PATH, type: "image/png" }],
+    icon: [
+      { url: FAVICON_PATH, type: "image/png", sizes: "32x32" },
+      { url: APPLE_ICON_PATH, type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: [{ url: FAVICON_PATH, type: "image/png" }],
+    apple: [{ url: APPLE_ICON_PATH, type: "image/png", sizes: "192x192" }],
   },
   title: {
     default:
@@ -246,9 +251,9 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <link rel="icon" type="image/png" href={LOGO_PATH} />
-        <link rel="shortcut icon" href={LOGO_PATH} />
-        <link rel="apple-touch-icon" href={LOGO_PATH} />
+        <link rel="icon" type="image/png" href={FAVICON_PATH} />
+        <link rel="shortcut icon" href={FAVICON_PATH} />
+        <link rel="apple-touch-icon" href={APPLE_ICON_PATH} />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0a0f1a" />
         <link rel="canonical" href={SITE_URL} />

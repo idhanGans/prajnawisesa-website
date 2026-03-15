@@ -163,10 +163,10 @@ const AboutSection = () => {
   }, []);
 
   const stats = [
-    { number: 2011, suffix: "", label: "Tahun Berdiri" },
+    { number: 2009, suffix: "", label: "Tahun Berdiri" },
     { number: 60, suffix: "+", label: "Klien Ditangani" },
     { number: 6, suffix: "+", label: "Pilar Layanan" },
-    { number: 15, suffix: "+", label: "Tahun Pengalaman" },
+    { number: 17, suffix: "+", label: "Tahun Pengalaman" },
   ];
 
   const credentials = [
@@ -208,7 +208,7 @@ const AboutSection = () => {
                 Menghadirkan solusi berbasis data dan pendekatan personal untuk
                 menyelesaikan masalah fundamental dalam operasional bisnis Anda
                 — dari transformasi organisasi hingga kepatuhan finansial.
-                Berdiri sejak tahun 2011, kami telah menangani sekitar 60 klien
+                Berdiri sejak tahun 2009, kami telah menangani sekitar 60 klien
                 dari berbagai segmen bisnis.
               </p>
             </FadeInUp>
@@ -219,8 +219,7 @@ const AboutSection = () => {
                   <h3 className={styles.founderName}>Desiree Muntu</h3>
                   <p className={styles.founderRole}>Managing Partner</p>
                   <p className={styles.founderBio}>
-                    Berpengalaman di Deloitte dan sebagai dosen akuntansi
-                    internasional di Universitas Katolik Widya Karya Malang.
+                    Berpengalaman di Deloitte dan Multinational Clients.
                   </p>
                 </div>
                 <div className={styles.credentials}>
